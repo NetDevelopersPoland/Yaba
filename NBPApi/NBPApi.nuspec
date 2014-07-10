@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>https://raw.githubusercontent.com/NetDevelopersPoland/Yaba/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/NetDevelopersPoland/Yaba</projectUrl>
+    <iconUrl>https://github.com/NetDevelopersPoland/Yaba/tree/develop/NBPApi/NBPApi.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <copyright>Copyright © NetDevelopersPoland 2014</copyright>
+    <tags>exchange rate api nbp</tags>
+  </metadata>
+</package>
