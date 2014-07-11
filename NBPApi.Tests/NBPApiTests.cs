@@ -21,6 +21,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
 
         [Fact]
@@ -34,6 +35,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
 
         [Fact]
@@ -47,6 +49,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
 
         [Fact]
@@ -60,6 +63,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
 
         [Fact]
@@ -73,6 +77,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
 
         [Fact]
@@ -86,6 +91,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
 
         [Fact]
@@ -99,6 +105,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
 
         [Fact]
@@ -112,6 +119,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
 
         [Fact]
@@ -125,6 +133,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
 
         [Fact]
@@ -138,6 +147,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
 
         [Fact]
@@ -151,6 +161,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
 
         [Fact]
@@ -164,6 +175,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
 
         [Fact]
@@ -177,6 +189,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
 
         [Fact]
@@ -190,6 +203,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
 
         [Fact]
@@ -203,6 +217,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
 
         [Fact]
@@ -216,6 +231,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
 
         [Fact]
@@ -229,6 +245,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
 
         [Fact]
@@ -242,6 +259,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
 
         [Fact]
@@ -255,6 +273,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
 
         [Fact]
@@ -268,6 +287,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
 
         [Fact]
@@ -281,6 +301,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
 
         [Fact]
@@ -294,6 +315,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
 
         [Fact]
@@ -307,6 +329,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
 
         [Fact]
@@ -320,6 +343,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
 
         [Fact]
@@ -333,6 +357,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
 
         [Fact]
@@ -346,6 +371,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
         
         [Fact]
@@ -359,6 +385,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
 
         [Fact]
@@ -372,6 +399,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
 
         [Fact]
@@ -385,6 +413,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
 
         [Fact]
@@ -398,6 +427,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
 
         [Fact]
@@ -411,6 +441,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
 
         [Fact]
@@ -424,6 +455,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
         
         [Fact]
@@ -437,6 +469,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
 
         [Fact]
@@ -450,6 +483,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
 
         [Fact]
@@ -463,6 +497,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
 
         [Fact]
@@ -476,6 +511,7 @@ namespace DotNetDevelopersPL.Yaba.Tests
             double value = nbpApi.GetActualValue(currency);
 
             // Assert
+            Assert.Equal(0d, value);
         }
     }
 }
