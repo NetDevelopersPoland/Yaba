@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("NBPApi")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("NBPApi")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("DotNetDevelopersPL")]
 [assembly: AssemblyProduct("DotNetDevelopersPL.Yaba")]
