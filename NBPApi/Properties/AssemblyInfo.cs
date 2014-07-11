@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("DotNetDevelopersPL")]
-[assembly: AssemblyProduct("Yaba.NBPApi")]
+[assembly: AssemblyProduct("DotNetDevelopersPL.Yaba")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

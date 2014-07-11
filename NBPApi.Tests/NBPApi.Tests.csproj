@@ -42,10 +42,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NBPApiTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NBPApi\NBPApi.csproj">
+      <Project>{fc67928b-3290-4568-8d66-f1b1d1e6c648}</Project>
+      <Name>NBPApi</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
