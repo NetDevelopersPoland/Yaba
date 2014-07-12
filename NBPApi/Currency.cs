@@ -6,147 +6,182 @@
     public enum Currency
     {
         /// <summary>
-        /// TODO
+        /// Thai Baht
         /// </summary>
         THB,
+
         /// <summary>
-        /// TODO
+        /// US Dollar
         /// </summary>
         USD,
+
         /// <summary>
-        /// TODO
+        /// Australian Dollar
         /// </summary>
         AUD,
+
         /// <summary>
-        /// TODO
+        /// Hong Kong Dollar
         /// </summary>
         HKD,
+
         /// <summary>
-        /// TODO
+        /// Canadian Dollar
         /// </summary>
         CAD,
+
         /// <summary>
-        /// TODO
+        /// New Zealand Dollar
         /// </summary>
         NZD,
+
         /// <summary>
-        /// TODO
+        /// Singapore Dollar
         /// </summary>
         SGD,
+
         /// <summary>
-        /// TODO
+        /// Euro
         /// </summary>
         EUR,
+
         /// <summary>
-        /// TODO
+        /// Hungarian Forint
         /// </summary>
         HUF,
+
         /// <summary>
-        /// TODO
+        /// Swiss Franc
         /// </summary>
         CHF,
+
         /// <summary>
-        /// TODO
+        /// British Pound
         /// </summary>
         GBP,
+
         /// <summary>
-        /// TODO
+        /// Ukrainian Hryvnia
         /// </summary>
         UAH,
+
         /// <summary>
-        /// TODO
+        /// Japanese Yen
         /// </summary>
         JPY,
+
         /// <summary>
-        /// TODO
+        /// Czech Koruna
         /// </summary>
         CZK,
+
         /// <summary>
-        /// TODO
+        /// Danish Krone
         /// </summary>
         DKK,
+
         /// <summary>
-        /// TODO
+        /// Icelandic Krona
         /// </summary>
         ISK,
+
         /// <summary>
-        /// TODO
+        /// Norwegian Krone
         /// </summary>
         NOK,
+
         /// <summary>
-        /// TODO
+        /// Swedish Krona
         /// </summary>
         SEK,
+
         /// <summary>
-        /// TODO
+        /// Croatian Kuna
         /// </summary>
         HRK,
+
         /// <summary>
-        /// TODO
+        /// Romanian New Leu
         /// </summary>
         RON,
+
         /// <summary>
-        /// TODO
+        /// Bulgarian Lev
         /// </summary>
         BGN,
+
         /// <summary>
-        /// TODO
+        /// Turkish Lira
         /// </summary>
         TRY,
+
         /// <summary>
-        /// TODO
+        /// Lithuanian Litas
         /// </summary>
         LTL,
+
         /// <summary>
-        /// TODO
+        /// Israeli Shekel
         /// </summary>
         ILS,
+
         /// <summary>
-        /// TODO
+        /// Chilean Peso
         /// </summary>
         CLP,
+
         /// <summary>
-        /// TODO
+        /// Philippine Peso
         /// </summary>
         PHP,
+
         /// <summary>
-        /// TODO
+        /// Mexican Peso
         /// </summary>
         MXN,
+
         /// <summary>
-        /// TODO
+        /// South African Rand
         /// </summary>
         ZAR,
+
         /// <summary>
-        /// TODO
+        /// Brazilian Real
         /// </summary>
         BRL,
+
         /// <summary>
-        /// TODO
+        /// Malaysian Ringgit
         /// </summary>
         MYR,
+
         /// <summary>
-        /// TODO
+        /// Russian Ruble
         /// </summary>
         RUB,
+
         /// <summary>
-        /// TODO
+        /// Indonesian Rupiah
         /// </summary>
         IDR,
+
         /// <summary>
-        /// TODO
+        /// Indian Rupee
         /// </summary>
         INR,
+
         /// <summary>
-        /// TODO
+        /// South Korean Won
         /// </summary>
         KRW,
+
         /// <summary>
-        /// TODO
+        /// Chinese Yuan Renminbi
         /// </summary>
         CNY,
+
         /// <summary>
-        /// TODO
+        /// IMF Special Drawing Rights
         /// </summary>
         XDR
     }

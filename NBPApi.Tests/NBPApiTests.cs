@@ -1,15 +1,9 @@
-﻿using System;
-using Xunit;
-using DotNetDevelopersPL.Yaba;
+﻿using Xunit;
 
 namespace DotNetDevelopersPL.Yaba.Tests
 {
     public class NBPApiTests
     {
-        public NBPApiTests()
-        {
-        }
-
         [Fact]
         public void GetActualTHBValueTest()
         {
@@ -21,7 +15,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.THB, money.Currency);
+            Assert.True(money.Value > 0M);
         }
 
         [Fact]
@@ -35,7 +30,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.USD, money.Currency);
+            Assert.True(money.Value > 0M);
         }
 
         [Fact]
@@ -49,7 +45,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.AUD, money.Currency);
+            Assert.True(money.Value > 0M);
         }
 
         [Fact]
@@ -63,7 +60,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.HKD, money.Currency);
+            Assert.True(money.Value > 0M);
         }
 
         [Fact]
@@ -77,7 +75,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.CAD, money.Currency);
+            Assert.True(money.Value > 0M);
         }
 
         [Fact]
@@ -91,7 +90,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.NZD, money.Currency);
+            Assert.True(money.Value > 0M);
         }
 
         [Fact]
@@ -105,7 +105,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.SGD, money.Currency);
+            Assert.True(money.Value > 0M);
         }
 
         [Fact]
@@ -119,7 +120,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.EUR, money.Currency);
+            Assert.True(money.Value > 0M);
         }
 
         [Fact]
@@ -133,7 +135,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.HUF, money.Currency);
+            Assert.True(money.Value > 0M);
         }
 
         [Fact]
@@ -147,7 +150,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.CHF, money.Currency);
+            Assert.True(money.Value > 0M);
         }
 
         [Fact]
@@ -161,7 +165,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.GBP, money.Currency);
+            Assert.True(money.Value > 0M);
         }
 
         [Fact]
@@ -175,7 +180,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.UAH, money.Currency);
+            Assert.True(money.Value > 0M);
         }
 
         [Fact]
@@ -189,7 +195,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.JPY, money.Currency);
+            Assert.True(money.Value > 0M);
         }
 
         [Fact]
@@ -203,7 +210,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.CZK, money.Currency);
+            Assert.True(money.Value > 0M);
         }
 
         [Fact]
@@ -217,7 +225,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.DKK, money.Currency);
+            Assert.True(money.Value > 0M);
         }
 
         [Fact]
@@ -231,7 +240,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.ISK, money.Currency);
+            Assert.True(money.Value > 0M);
         }
 
         [Fact]
@@ -245,7 +255,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.NOK, money.Currency);
+            Assert.True(money.Value > 0M);
         }
 
         [Fact]
@@ -259,7 +270,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.SEK, money.Currency);
+            Assert.True(money.Value > 0M);
         }
 
         [Fact]
@@ -273,7 +285,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.HRK, money.Currency);
+            Assert.True(money.Value > 0M);
         }
 
         [Fact]
@@ -287,7 +300,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.RON, money.Currency);
+            Assert.True(money.Value > 0M);
         }
 
         [Fact]
@@ -301,7 +315,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.BGN, money.Currency);
+            Assert.True(money.Value > 0M);
         }
 
         [Fact]
@@ -315,7 +330,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.TRY, money.Currency);
+            Assert.True(money.Value > 0M);
         }
 
         [Fact]
@@ -329,7 +345,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.LTL, money.Currency);
+            Assert.True(money.Value > 0M);
         }
 
         [Fact]
@@ -343,7 +360,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.ILS, money.Currency);
+            Assert.True(money.Value > 0M);
         }
 
         [Fact]
@@ -357,7 +375,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.CLP, money.Currency);
+            Assert.True(money.Value > 0M);
         }
 
         [Fact]
@@ -371,7 +390,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.PHP, money.Currency);
+            Assert.True(money.Value > 0M);
         }
         
         [Fact]
@@ -385,7 +405,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.MXN, money.Currency);
+            Assert.True(money.Value > 0M);
         }
 
         [Fact]
@@ -399,7 +420,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.ZAR, money.Currency);
+            Assert.True(money.Value > 0M);
         }
 
         [Fact]
@@ -413,7 +435,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.BRL, money.Currency);
+            Assert.True(money.Value > 0M);
         }
 
         [Fact]
@@ -427,7 +450,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.MYR, money.Currency);
+            Assert.True(money.Value > 0M);
         }
 
         [Fact]
@@ -441,7 +465,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.RUB, money.Currency);
+            Assert.True(money.Value > 0M);
         }
 
         [Fact]
@@ -455,7 +480,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.IDR, money.Currency);
+            Assert.True(money.Value > 0M);
         }
         
         [Fact]
@@ -469,7 +495,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.INR, money.Currency);
+            Assert.True(money.Value > 0M);
         }
 
         [Fact]
@@ -483,7 +510,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.KRW, money.Currency);
+            Assert.True(money.Value > 0M);
         }
 
         [Fact]
@@ -497,7 +525,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.CNY, money.Currency);
+            Assert.True(money.Value > 0M);
         }
 
         [Fact]
@@ -511,7 +540,8 @@ namespace DotNetDevelopersPL.Yaba.Tests
             Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0M, money.Value);
+            Assert.Equal(Currency.XDR, money.Currency);
+            Assert.True(money.Value > 0M);
         }
     }
 }

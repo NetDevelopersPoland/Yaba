@@ -1,4 +1,7 @@
 ﻿using System;
+using System.IO;
+using System.Net;
+using System.Text;
 
 namespace DotNetDevelopersPL.Yaba
 {
@@ -7,24 +10,34 @@ namespace DotNetDevelopersPL.Yaba
     /// </summary>
     public class NBPApi : INBPApi, IDisposable
     {
+        private readonly string requestUriString = @"http://www.nbp.pl/kursy/xml/LastA.xml";
+
         /// <summary>
-        /// TODO
+        /// Get actual exchange rate for currency
         /// </summary>
         /// <param name="currency">Currency</param>
         /// <returns>Actual exchange rate for currency</returns>
         public Money GetActualExchangeRate(Currency currency)
         {
-            // TODO
+            HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create(this.requestUriString);
 
-            return new Money()
+            using (HttpWebResponse httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse())
             {
-                Value = 0M,
-                Currency = currency
-            };
+                using (StreamReader streamReader = new StreamReader(httpWebResponse.GetResponseStream(), Encoding.GetEncoding("iso-8859-2")))
+                {
+                    // TODO
+
+                    return new Money()
+                    {
+                        Value = 1M,
+                        Currency = currency
+                    };
+                }
+            }
         }
         
         /// <summary>
-        /// TODO
+        /// Dispose
         /// </summary>
         public void Dispose()
         {
