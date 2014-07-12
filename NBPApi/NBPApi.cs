@@ -10,13 +10,17 @@ namespace DotNetDevelopersPL.Yaba
         /// <summary>
         /// TODO
         /// </summary>
-        /// <param name="currency"></param>
-        /// <returns></returns>
-        public double GetActualValue(Currency currency)
+        /// <param name="currency">Currency</param>
+        /// <returns>Actual exchange rate for currency</returns>
+        public Money GetActualExchangeRate(Currency currency)
         {
             // TODO
 
-            return 0d;
+            return new Money()
+            {
+                Value = 0M,
+                Currency = currency
+            };
         }
         
         /// <summary>

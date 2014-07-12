@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Currency.cs" />
     <Compile Include="INBPApi.cs" />
+    <Compile Include="Money.cs" />
     <Compile Include="NBPApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

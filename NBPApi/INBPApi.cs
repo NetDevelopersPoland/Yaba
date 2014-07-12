@@ -2,6 +2,6 @@
 {
     interface INBPApi
     {
-        double GetActualValue(Currency currency);
+        Money GetActualExchangeRate(Currency currency);
     }
 }

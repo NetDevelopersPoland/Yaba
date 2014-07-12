@@ -18,10 +18,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
 
         [Fact]
@@ -32,10 +32,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
 
         [Fact]
@@ -46,10 +46,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
 
         [Fact]
@@ -60,10 +60,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
 
         [Fact]
@@ -74,10 +74,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
 
         [Fact]
@@ -88,10 +88,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
 
         [Fact]
@@ -102,10 +102,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
 
         [Fact]
@@ -116,10 +116,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
 
         [Fact]
@@ -130,10 +130,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
 
         [Fact]
@@ -144,10 +144,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
 
         [Fact]
@@ -158,10 +158,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
 
         [Fact]
@@ -172,10 +172,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
 
         [Fact]
@@ -186,10 +186,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
 
         [Fact]
@@ -200,10 +200,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
 
         [Fact]
@@ -214,10 +214,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
 
         [Fact]
@@ -228,10 +228,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
 
         [Fact]
@@ -242,10 +242,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
 
         [Fact]
@@ -256,10 +256,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
 
         [Fact]
@@ -270,10 +270,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
 
         [Fact]
@@ -284,10 +284,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
 
         [Fact]
@@ -298,10 +298,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
 
         [Fact]
@@ -312,10 +312,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
 
         [Fact]
@@ -326,10 +326,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
 
         [Fact]
@@ -340,10 +340,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
 
         [Fact]
@@ -354,10 +354,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
 
         [Fact]
@@ -368,10 +368,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
         
         [Fact]
@@ -382,10 +382,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
 
         [Fact]
@@ -396,10 +396,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
 
         [Fact]
@@ -410,10 +410,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
 
         [Fact]
@@ -424,10 +424,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
 
         [Fact]
@@ -438,10 +438,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
 
         [Fact]
@@ -452,10 +452,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
         
         [Fact]
@@ -466,10 +466,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
 
         [Fact]
@@ -480,10 +480,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
 
         [Fact]
@@ -494,10 +494,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
 
         [Fact]
@@ -508,10 +508,10 @@ namespace DotNetDevelopersPL.Yaba.Tests
             NBPApi nbpApi = new NBPApi();
 
             // Act
-            double value = nbpApi.GetActualValue(currency);
+            Money money = nbpApi.GetActualExchangeRate(currency);
 
             // Assert
-            Assert.Equal(0d, value);
+            Assert.Equal(0M, money.Value);
         }
     }
 }
