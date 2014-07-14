@@ -1,4 +1,4 @@
-﻿namespace DotNetDevelopersPL.Yaba.NBP
+﻿namespace NetDevelopersPoland.Yaba.NBP
 {
     /// <summary>
     /// Money

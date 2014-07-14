@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Yaba.NBP")]
 [assembly: AssemblyDescription("Yaba.NBP")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("DotNetDevelopersPL")]
-[assembly: AssemblyProduct("DotNetDevelopersPL.Yaba")]
-[assembly: AssemblyCopyright("Copyright ©  2014")]
+[assembly: AssemblyCompany("NetDevelopersPoland")]
+[assembly: AssemblyProduct("NetDevelopersPoland.Yaba")]
+[assembly: AssemblyCopyright("Copyright © NetDevelopersPoland 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

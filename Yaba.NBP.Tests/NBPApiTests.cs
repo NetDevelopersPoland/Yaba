@@ -1,6 +1,6 @@
 ﻿using Xunit;
 
-namespace DotNetDevelopersPL.Yaba.NBP.Tests
+namespace NetDevelopersPoland.Yaba.NBP.Tests
 {
     public class NBPApiTests
     {
