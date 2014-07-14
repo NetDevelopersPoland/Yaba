@@ -7,8 +7,8 @@
     <ProjectGuid>{E64B3CB6-CADA-464C-BE7B-B57AEAA04A00}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NBPApi.Tests</RootNamespace>
-    <AssemblyName>NBPApi.Tests</AssemblyName>
+    <RootNamespace>Yaba.NBP.Tests</RootNamespace>
+    <AssemblyName>Yaba.NBP.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,6 +43,9 @@
     <Reference Include="xunit">
       <HintPath>..\packages\xunit.1.9.2\lib\net20\xunit.dll</HintPath>
     </Reference>
+    <Reference Include="xunit.extensions">
+      <HintPath>..\packages\xunit.extensions.1.9.2\lib\net20\xunit.extensions.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NBPApiTests.cs" />
@@ -49,9 +55,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NBPApi\NBPApi.csproj">
+    <ProjectReference Include="..\Yaba.NBP\Yaba.NBP.csproj">
       <Project>{fc67928b-3290-4568-8d66-f1b1d1e6c648}</Project>
-      <Name>NBPApi</Name>
+      <Name>Yaba.NBP</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

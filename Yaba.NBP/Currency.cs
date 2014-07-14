@@ -1,4 +1,4 @@
-﻿namespace DotNetDevelopersPL.Yaba
+﻿namespace DotNetDevelopersPL.Yaba.NBP
 {
     /// <summary>
     /// Available currencies

@@ -5,8 +5,8 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("NBPApi.Tests")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Yaba.NBP")]
+[assembly: AssemblyDescription("Yaba.NBP")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("DotNetDevelopersPL")]
 [assembly: AssemblyProduct("DotNetDevelopersPL.Yaba")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("a340b6da-7b3f-4c86-9936-0b957f34ffac")]
+[assembly: Guid("a75a3343-e263-4bdf-8bad-4398644d41bf")]
 
 // Version information for an assembly consists of the following four values:
 //

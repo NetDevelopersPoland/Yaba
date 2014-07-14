@@ -3,7 +3,7 @@ using System.IO;
 using System.Net;
 using System.Text;
 
-namespace DotNetDevelopersPL.Yaba
+namespace DotNetDevelopersPL.Yaba.NBP
 {
     /// <summary>
     /// TODO
