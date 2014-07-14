@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.IO;
 using System.Net;
 using System.Text;
@@ -10,7 +11,15 @@ namespace NetDevelopersPoland.Yaba.NBP
     /// </summary>
     public class NBPApi : INBPApi, IDisposable
     {
-        private readonly string requestUriString = @"http://www.nbp.pl/kursy/xml/LastA.xml";
+        private string _requestUriString;
+
+        /// <summary>
+        /// Creates new NBPApi instance
+        /// </summary>
+        public NBPApi()
+        {
+            _requestUriString = ConfigurationManager.AppSettings["NBPUrl"];
+        }
 
         /// <summary>
         /// Get actual exchange rate for currency
@@ -19,7 +28,7 @@ namespace NetDevelopersPoland.Yaba.NBP
         /// <returns>Actual exchange rate for currency</returns>
         public Money GetActualExchangeRate(Currency currency)
         {
-            HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create(this.requestUriString);
+            HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create(_requestUriString);
 
             using (HttpWebResponse httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse())
             {
