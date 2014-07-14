@@ -8,7 +8,7 @@
     <owners>$author$</owners>
     <licenseUrl>https://raw.githubusercontent.com/NetDevelopersPoland/Yaba/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/NetDevelopersPoland/Yaba</projectUrl>
-    <iconUrl>https://github.com/NetDevelopersPoland/Yaba/tree/develop/NBPApi/NBPApi.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/NetDevelopersPoland/Yaba/develop/NBPApi/NBPApi.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
     <copyright>Copyright © NetDevelopersPoland 2014</copyright>
