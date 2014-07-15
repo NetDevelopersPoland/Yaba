@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -47,8 +48,8 @@ namespace NetDevelopersPoland.Yaba.NBP
                     .Descendants(XName.Get("data_publikacji"))
                     .SingleOrDefault();
 
-                Decimal value = Decimal.Parse(exchangeRateElement.Value);
-                DateTime date = DateTime.Parse(publicationDateElement.Value);
+                Decimal value = Decimal.Parse(exchangeRateElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
+                DateTime date = DateTime.Parse(publicationDateElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
 
                 return new Money()
                 {
