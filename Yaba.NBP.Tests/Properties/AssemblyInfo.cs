@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
@@ -9,8 +8,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Yaba.NBP.Tests")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("NetDevelopersPoland")]
-[assembly: AssemblyProduct("NetDevelopersPoland.Yaba")]
-[assembly: AssemblyCopyright("Copyright © NetDevelopersPoland 2014")]
+[assembly: AssemblyProduct("Yaba")]
+[assembly: AssemblyCopyright("Copyright 2014, NetDevelopersPoland. All rights reserved.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

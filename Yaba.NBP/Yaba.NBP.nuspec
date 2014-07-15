@@ -11,7 +11,7 @@
     <iconUrl>https://raw.githubusercontent.com/NetDevelopersPoland/Yaba/develop/Yaba.NBP/Yaba.NBP.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <copyright>Copyright © NetDevelopersPoland 2014</copyright>
+    <copyright>Copyright 2014, NetDevelopersPoland. All rights reserved.</copyright>
     <tags>exchange rate api nbp</tags>
   </metadata>
 </package>
