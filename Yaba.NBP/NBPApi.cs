@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Configuration;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Text;
+using System.Xml.Linq;
 
 namespace NetDevelopersPoland.Yaba.NBP
 {
@@ -31,17 +33,29 @@ namespace NetDevelopersPoland.Yaba.NBP
             HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create(_requestUriString);
 
             using (HttpWebResponse httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse())
+            using (StreamReader streamReader = new StreamReader(httpWebResponse.GetResponseStream(), Encoding.GetEncoding("iso-8859-2")))
             {
-                using (StreamReader streamReader = new StreamReader(httpWebResponse.GetResponseStream(), Encoding.GetEncoding("iso-8859-2")))
-                {
-                    // TODO
+                XDocument xmlDocument = XDocument.Load(new StringReader(streamReader.ReadToEnd()));
+                XElement positionElement = xmlDocument
+                    .Descendants(XName.Get("kod_waluty"))
+                    .SingleOrDefault(x => x.Value == Enum.GetName(currency.GetType(), currency))
+                    .Parent;
+                XElement exchangeRateElement = positionElement
+                    .Elements(XName.Get("kurs_sredni"))
+                    .SingleOrDefault();
+                XElement publicationDateElement = xmlDocument
+                    .Descendants(XName.Get("data_publikacji"))
+                    .SingleOrDefault();
 
-                    return new Money()
-                    {
-                        Value = 1M,
-                        Currency = currency
-                    };
-                }
+                Decimal value = Decimal.Parse(exchangeRateElement.Value);
+                DateTime date = DateTime.Parse(publicationDateElement.Value);
+
+                return new Money()
+                {
+                    ExchangeRate = value,
+                    Currency = currency,
+                    PublicationDate = date
+                };
             }
         }
         

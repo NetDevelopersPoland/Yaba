@@ -1,48 +1,60 @@
-﻿using Xunit;
+﻿using System.Collections.Generic;
+using Xunit;
 using Xunit.Extensions;
 
 namespace NetDevelopersPoland.Yaba.NBP.Tests
 {
     public class NBPApiTests
     {
+        public static IEnumerable<object[]> FakeData
+        {
+            get
+            {
+                return new[]
+                {
+                    new object[] { Currency.THB, 0.0947M },
+                    new object[] { Currency.USD, 3.0454M },
+                    new object[] { Currency.AUD, 2.8538M },
+                    new object[] { Currency.HKD, 0.3930M },
+                    new object[] { Currency.CAD, 2.8371M },
+                    new object[] { Currency.NZD, 2.6785M },
+                    new object[] { Currency.SGD, 2.4513M },
+                    new object[] { Currency.EUR, 4.1433M },
+                    new object[] { Currency.HUF, 1.3390M },
+                    new object[] { Currency.CHF, 3.4124M },
+                    new object[] { Currency.GBP, 5.2196M },
+                    new object[] { Currency.UAH, 0.2600M },
+                    new object[] { Currency.JPY, 2.9989M },
+                    new object[] { Currency.CZK, 0.1510M },
+                    new object[] { Currency.DKK, 0.5556M },
+                    new object[] { Currency.ISK, 2.6619M },
+                    new object[] { Currency.NOK, 0.4920M },
+                    new object[] { Currency.SEK, 0.4485M },
+                    new object[] { Currency.HRK, 0.5443M },
+                    new object[] { Currency.RON, 0.9380M },
+                    new object[] { Currency.BGN, 2.1185M },
+                    new object[] { Currency.TRY, 1.4358M },
+                    new object[] { Currency.LTL, 1.2000M },
+                    new object[] { Currency.ILS, 0.8944M },
+                    new object[] { Currency.CLP, 0.5501M },
+                    new object[] { Currency.PHP, 0.0698M },
+                    new object[] { Currency.MXN, 0.2348M },
+                    new object[] { Currency.ZAR, 0.2843M },
+                    new object[] { Currency.BRL, 1.3778M },
+                    new object[] { Currency.MYR, 0.9577M },
+                    new object[] { Currency.RUB, 0.0887M },
+                    new object[] { Currency.IDR, 2.6075M },
+                    new object[] { Currency.INR, 5.0647M },
+                    new object[] { Currency.KRW, 0.2965M },
+                    new object[] { Currency.CNY, 0.4906M },
+                    new object[] { Currency.XDR, 4.6991M }
+                };
+            }
+        }
+
         [Theory]
-        [InlineData(Currency.AUD, Currency.AUD, 1f)]
-        [InlineData(Currency.BGN, Currency.BGN, 1f)]
-        [InlineData(Currency.BRL, Currency.BRL, 1f)]
-        [InlineData(Currency.CAD, Currency.CAD, 1f)]
-        [InlineData(Currency.CHF, Currency.CHF, 1f)]
-        [InlineData(Currency.CLP, Currency.CLP, 1f)]
-        [InlineData(Currency.CNY, Currency.CNY, 1f)]
-        [InlineData(Currency.CZK, Currency.CZK, 1f)]
-        [InlineData(Currency.DKK, Currency.DKK, 1f)]
-        [InlineData(Currency.EUR, Currency.EUR, 1f)]
-        [InlineData(Currency.GBP, Currency.GBP, 1f)]
-        [InlineData(Currency.HKD, Currency.HKD, 1f)]
-        [InlineData(Currency.HRK, Currency.HRK, 1f)]
-        [InlineData(Currency.HUF, Currency.HUF, 1f)]
-        [InlineData(Currency.IDR, Currency.IDR, 1f)]
-        [InlineData(Currency.ILS, Currency.ILS, 1f)]
-        [InlineData(Currency.INR, Currency.INR, 1f)]
-        [InlineData(Currency.ISK, Currency.ISK, 1f)]
-        [InlineData(Currency.JPY, Currency.JPY, 1f)]
-        [InlineData(Currency.KRW, Currency.KRW, 1f)]
-        [InlineData(Currency.LTL, Currency.LTL, 1f)]
-        [InlineData(Currency.MXN, Currency.MXN, 1f)]
-        [InlineData(Currency.MYR, Currency.MYR, 1f)]
-        [InlineData(Currency.NOK, Currency.NOK, 1f)]
-        [InlineData(Currency.NZD, Currency.NZD, 1f)]
-        [InlineData(Currency.PHP, Currency.PHP, 1f)]
-        [InlineData(Currency.RON, Currency.RON, 1f)]
-        [InlineData(Currency.RUB, Currency.RUB, 1f)]
-        [InlineData(Currency.SEK, Currency.SEK, 1f)]
-        [InlineData(Currency.SGD, Currency.SGD, 1f)]
-        [InlineData(Currency.THB, Currency.THB, 1f)]
-        [InlineData(Currency.TRY, Currency.TRY, 1f)]
-        [InlineData(Currency.UAH, Currency.UAH, 1f)]
-        [InlineData(Currency.USD, Currency.USD, 1f)]
-        [InlineData(Currency.XDR, Currency.XDR, 1f)]
-        [InlineData(Currency.ZAR, Currency.ZAR, 1f)]
-        public void NBPApi_providedCurrency_shouldReturnActualExchangeRate(Currency providedCurrency, Currency expectedCurrency, double expectedRate)
+        [PropertyData("FakeData")]        
+        public void NBPApi_providedCurrency_shouldReturnActualExchangeRate(Currency providedCurrency, decimal expectedExchangeRate)
         {
             // Arrange
             NBPApi sut = new NBPApi();
@@ -51,8 +63,7 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
             Money money = sut.GetActualExchangeRate(providedCurrency);
 
             // Assert
-            Assert.Equal(expectedCurrency, money.Currency);
-            Assert.Equal((decimal)expectedRate, money.Value);
+            Assert.Equal(expectedExchangeRate, money.ExchangeRate);
         }
     }
 }
