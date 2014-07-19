@@ -45,9 +45,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Currency.cs" />
+    <Compile Include="INBPDataSource.cs" />
     <Compile Include="INBPApi.cs" />
-    <Compile Include="Money.cs" />
+    <Compile Include="ExchangeRate.cs" />
     <Compile Include="NBPApi.cs" />
+    <Compile Include="NBPDataSource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

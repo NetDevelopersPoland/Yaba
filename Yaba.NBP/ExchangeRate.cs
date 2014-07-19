@@ -3,14 +3,14 @@
 namespace NetDevelopersPoland.Yaba.NBP
 {
     /// <summary>
-    /// Money
+    /// Exchange rate
     /// </summary>
-    public struct Money
+    public struct ExchangeRate
     {
         /// <summary>
-        /// Exchange rate
+        /// Value
         /// </summary>
-        public decimal ExchangeRate { get; set; }
+        public decimal Value { get; set; }
 
         /// <summary>
         /// Currency

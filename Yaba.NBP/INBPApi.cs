@@ -1,7 +1,15 @@
 ﻿namespace NetDevelopersPoland.Yaba.NBP
 {
-    interface INBPApi
+    /// <summary>
+    /// TODO
+    /// </summary>
+    public interface INBPApi
     {
-        Money GetActualExchangeRate(Currency currency);
+        /// <summary>
+        /// Get actual exchange rate for currency
+        /// </summary>
+        /// <param name="currency">Currency</param>
+        /// <returns>Actual exchange rate for currency</returns>
+        ExchangeRate GetActualExchangeRate(Currency currency);
     }
 }

@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Configuration;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Text;
 using System.Xml.Linq;
 
@@ -14,14 +12,22 @@ namespace NetDevelopersPoland.Yaba.NBP
     /// </summary>
     public class NBPApi : INBPApi, IDisposable
     {
-        private string _requestUriString;
+        private INBPDataSource _NBPDataSource;
 
         /// <summary>
         /// Creates new NBPApi instance
         /// </summary>
         public NBPApi()
         {
-            _requestUriString = ConfigurationManager.AppSettings["NBPUrl"];
+            _NBPDataSource = new NBPDataSource();
+        }
+
+        /// <summary>
+        /// Creates new NBPApi instance
+        /// </summary>
+        public NBPApi(INBPDataSource NBPDataSource)
+        {
+            _NBPDataSource = NBPDataSource;
         }
 
         /// <summary>
@@ -29,33 +35,37 @@ namespace NetDevelopersPoland.Yaba.NBP
         /// </summary>
         /// <param name="currency">Currency</param>
         /// <returns>Actual exchange rate for currency</returns>
-        public Money GetActualExchangeRate(Currency currency)
+        public ExchangeRate GetActualExchangeRate(Currency currency)
         {
-            HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create(_requestUriString);
+            Stream actualExchangeRateDataSourceStream = _NBPDataSource.GetActualExchangeRateDataSource();            
+            actualExchangeRateDataSourceStream.Seek(0, SeekOrigin.Begin);
 
-            using (HttpWebResponse httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse())
-            using (StreamReader streamReader = new StreamReader(httpWebResponse.GetResponseStream(), Encoding.GetEncoding("iso-8859-2")))
+            MemoryStream tempStream = new MemoryStream();            
+            actualExchangeRateDataSourceStream.CopyTo(tempStream);
+            tempStream.Seek(0, SeekOrigin.Begin);
+
+            using (StreamReader streamReader = new StreamReader(tempStream, Encoding.GetEncoding("iso-8859-2")))
             {
                 XDocument xmlDocument = XDocument.Load(new StringReader(streamReader.ReadToEnd()));
                 XElement positionElement = xmlDocument
                     .Descendants(XName.Get("kod_waluty"))
                     .SingleOrDefault(x => x.Value == Enum.GetName(currency.GetType(), currency))
                     .Parent;
-                XElement exchangeRateElement = positionElement
+                XElement valueElement = positionElement
                     .Elements(XName.Get("kurs_sredni"))
                     .SingleOrDefault();
                 XElement publicationDateElement = xmlDocument
                     .Descendants(XName.Get("data_publikacji"))
                     .SingleOrDefault();
 
-                Decimal value = Decimal.Parse(exchangeRateElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
-                DateTime date = DateTime.Parse(publicationDateElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
+                Decimal value = Decimal.Parse(valueElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
+                DateTime publicationDate = DateTime.Parse(publicationDateElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
 
-                return new Money()
+                return new ExchangeRate()
                 {
-                    ExchangeRate = value,
+                    Value = value,
                     Currency = currency,
-                    PublicationDate = date
+                    PublicationDate = publicationDate
                 };
             }
         }
@@ -65,7 +75,8 @@ namespace NetDevelopersPoland.Yaba.NBP
         /// </summary>
         public void Dispose()
         {
-            // TODO
+            if (_NBPDataSource != null)
+                _NBPDataSource.Dispose();
         }
     }
 }

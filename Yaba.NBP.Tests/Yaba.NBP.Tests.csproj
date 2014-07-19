@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.2.1402.2112\lib\net40\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject">
       <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
@@ -49,12 +52,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NBPApiTests.cs" />
+    <Compile Include="NBPApiTestsFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Yaba.NBP\App.config">
-      <Link>App.config</Link>
-    </None>
+	<None Include="..\Yaba.NBP\App.config">
+	  <Link>App.config</Link>
+	</None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -62,6 +66,11 @@
       <Project>{fc67928b-3290-4568-8d66-f1b1d1e6c648}</Project>
       <Name>Yaba.NBP</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MockedActualExchangeRateDataSource.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
