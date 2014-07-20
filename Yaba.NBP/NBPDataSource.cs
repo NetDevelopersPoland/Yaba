@@ -1,5 +1,6 @@
-﻿using System;
+﻿using System.Configuration;
 using System.IO;
+using System.Net;
 
 namespace NetDevelopersPoland.Yaba.NBP
 {
@@ -8,13 +9,18 @@ namespace NetDevelopersPoland.Yaba.NBP
     /// </summary>
     public class NBPDataSource : INBPDataSource
     {
+        private HttpWebResponse _httpWebResponse;
+
         /// <summary>
         /// TODO
         /// </summary>
         /// <returns></returns>
         public Stream GetActualExchangeRateDataSource()
         {
-            throw new NotImplementedException();
+            string actualExchangeRateDataSourceUrl = ConfigurationManager.AppSettings["ActualExchangeRateDataSourceUrl"];
+            HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create(actualExchangeRateDataSourceUrl);
+            _httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            return _httpWebResponse.GetResponseStream();
         }
 
         /// <summary>
@@ -22,7 +28,8 @@ namespace NetDevelopersPoland.Yaba.NBP
         /// </summary>
         public void Dispose()
         {
-            throw new NotImplementedException();
+            if (_httpWebResponse != null)
+                _httpWebResponse.Dispose();
         }
     }
 }

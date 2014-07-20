@@ -37,12 +37,14 @@ namespace NetDevelopersPoland.Yaba.NBP
         /// <returns>Actual exchange rate for currency</returns>
         public ExchangeRate GetActualExchangeRate(Currency currency)
         {
-            Stream actualExchangeRateDataSourceStream = _NBPDataSource.GetActualExchangeRateDataSource();            
-            actualExchangeRateDataSourceStream.Seek(0, SeekOrigin.Begin);
+            Stream actualExchangeRateDataSourceStream = _NBPDataSource.GetActualExchangeRateDataSource();
+            if (actualExchangeRateDataSourceStream.CanSeek)
+                actualExchangeRateDataSourceStream.Seek(0, SeekOrigin.Begin);
 
-            MemoryStream tempStream = new MemoryStream();            
+            MemoryStream tempStream = new MemoryStream();
             actualExchangeRateDataSourceStream.CopyTo(tempStream);
-            tempStream.Seek(0, SeekOrigin.Begin);
+            if (tempStream.CanSeek)
+                tempStream.Seek(0, SeekOrigin.Begin);
 
             using (StreamReader streamReader = new StreamReader(tempStream, Encoding.GetEncoding("iso-8859-2")))
             {
