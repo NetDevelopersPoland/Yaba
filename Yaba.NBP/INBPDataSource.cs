@@ -12,6 +12,6 @@ namespace NetDevelopersPoland.Yaba.NBP
         /// TODO
         /// </summary>
         /// <returns></returns>
-        Stream GetActualExchangeRateDataSource();
+        Stream GetActualExchangeRatesDataSource();
     }
 }

@@ -15,10 +15,10 @@ namespace NetDevelopersPoland.Yaba.NBP
         /// TODO
         /// </summary>
         /// <returns></returns>
-        public Stream GetActualExchangeRateDataSource()
+        public Stream GetActualExchangeRatesDataSource()
         {
-            string actualExchangeRateDataSourceUrl = ConfigurationManager.AppSettings["ActualExchangeRateDataSourceUrl"];
-            HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create(actualExchangeRateDataSourceUrl);
+            string actualExchangeRatesDataSourceUrl = ConfigurationManager.AppSettings["ActualExchangeRatesDataSourceUrl"];
+            HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create(actualExchangeRatesDataSourceUrl);
             _httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse();
             return _httpWebResponse.GetResponseStream();
         }

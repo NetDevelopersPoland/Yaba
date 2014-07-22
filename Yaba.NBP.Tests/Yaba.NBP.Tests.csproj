@@ -56,9 +56,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-	<None Include="..\Yaba.NBP\App.config">
-	  <Link>App.config</Link>
-	</None>
+    <None Include="..\Yaba.NBP\App.config">
+      <Link>App.config</Link>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -68,7 +68,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MockedActualExchangeRateDataSource.xml">
+    <Content Include="MockedActualExchangeRatesDataSource.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
