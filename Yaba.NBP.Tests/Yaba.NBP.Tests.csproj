@@ -7,7 +7,7 @@
     <ProjectGuid>{E64B3CB6-CADA-464C-BE7B-B57AEAA04A00}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Yaba.NBP.Tests</RootNamespace>
+    <RootNamespace>NetDevelopersPoland.Yaba.NBP.Tests</RootNamespace>
     <AssemblyName>Yaba.NBP.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

@@ -7,7 +7,7 @@
     <ProjectGuid>{FC67928B-3290-4568-8D66-F1B1D1E6C648}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Yaba.NBP</RootNamespace>
+    <RootNamespace>NetDevelopersPoland.Yaba.NBP</RootNamespace>
     <AssemblyName>Yaba.NBP</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
