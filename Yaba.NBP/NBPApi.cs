@@ -71,7 +71,21 @@ namespace NetDevelopersPoland.Yaba.NBP
                 };
             }
         }
-        
+
+        /// <summary>
+        /// Get archival exchange rate for currency
+        /// </summary>
+        /// <param name="currency">Currency</param>
+        /// <param name="table">Table</param>
+        /// <param name="date">Date</param>
+        /// <returns>Archival exchange rate for currency</returns>
+        public ExchangeRate GetArchivalExchangeRate(Currency currency, Table table, DateTime date)
+        {
+            // TODO
+
+            return new ExchangeRate();
+        }
+
         /// <summary>
         /// Dispose
         /// </summary>

@@ -1,4 +1,4 @@
-﻿using System.Configuration;
+﻿using System;
 using System.IO;
 using System.Net;
 
@@ -17,8 +17,20 @@ namespace NetDevelopersPoland.Yaba.NBP
         /// <returns></returns>
         public Stream GetActualExchangeRatesDataSource()
         {
-            string actualExchangeRatesDataSourceUrl = ConfigurationManager.AppSettings["ActualExchangeRatesDataSourceUrl"];
+            string actualExchangeRatesDataSourceUrl = ApiConfiguration.ActualExchangeRatesDataSourceUrl;
             HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create(actualExchangeRatesDataSourceUrl);
+            _httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            return _httpWebResponse.GetResponseStream();
+        }
+
+        /// <summary>
+        /// TODO
+        /// </summary>
+        /// <returns></returns>
+        public Stream GetArchivalExchangeRatesDataSource(Table table, DateTime date)
+        {
+            string archivalExchangeRatesDataSourceUrl = ArchivalExchangeRatesUrlGenerator.GetUrl(table, date);
+            HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create(archivalExchangeRatesDataSourceUrl);
             _httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse();
             return _httpWebResponse.GetResponseStream();
         }

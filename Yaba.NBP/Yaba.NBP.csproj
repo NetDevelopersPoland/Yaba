@@ -44,6 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiConfiguration.cs" />
+    <Compile Include="ArchivalExchangeRatesUrlGenerator.cs" />
     <Compile Include="Currency.cs" />
     <Compile Include="INBPDataSource.cs" />
     <Compile Include="INBPApi.cs" />
@@ -51,6 +53,7 @@
     <Compile Include="NBPApi.cs" />
     <Compile Include="NBPDataSource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Table.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
