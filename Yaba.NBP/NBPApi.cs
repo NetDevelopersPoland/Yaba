@@ -73,6 +73,53 @@ namespace NetDevelopersPoland.Yaba.NBP
         }
 
         /// <summary>
+        /// Get actual buy-sell rate for currency
+        /// </summary>
+        /// <param name="currency">Currency</param>
+        /// <returns>Return actual buy-sell rates for currency</returns>
+        public BuySellRate GetActualBuySellRate(Currency currency)
+        {
+            Stream actualBuySellRatesDataSource = _NBPDataSource.GetActualBuySellRatesDataSource();
+            if (actualBuySellRatesDataSource.CanSeek)
+                actualBuySellRatesDataSource.Seek(0, SeekOrigin.Begin);
+
+            MemoryStream tempStream = new MemoryStream();
+            actualBuySellRatesDataSource.CopyTo(tempStream);
+            if (tempStream.CanSeek)
+                tempStream.Seek(0, SeekOrigin.Begin);
+
+            using (StreamReader streamReader = new StreamReader(tempStream, Encoding.GetEncoding("iso-8859-2")))
+            {
+                XDocument xmlDocument = XDocument.Load(new StringReader(streamReader.ReadToEnd()));
+                XElement positionElement = xmlDocument
+                    .Descendants(XName.Get("kod_waluty"))
+                    .SingleOrDefault(x => x.Value == Enum.GetName(currency.GetType(), currency))
+                    .Parent;
+                XElement buyValueElement = positionElement
+                    .Elements(XName.Get("kurs_kupna"))
+                    .SingleOrDefault();
+                XElement sellValueElement = positionElement
+                    .Elements(XName.Get("kurs_sprzedazy"))
+                    .SingleOrDefault();
+                XElement publicationDateElement = xmlDocument
+                    .Descendants(XName.Get("data_publikacji"))
+                    .SingleOrDefault();
+
+                Decimal buyValue = Decimal.Parse(buyValueElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
+                Decimal sellValue = Decimal.Parse(sellValueElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
+                DateTime publicationDate = DateTime.Parse(publicationDateElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
+
+                return new BuySellRate()
+                {
+                    BuyValue = buyValue,
+                    SellValue = sellValue,
+                    Currency = currency,
+                    PublicationDate = publicationDate
+                };
+            }
+        }
+
+        /// <summary>
         /// Get archival exchange rate for currency
         /// </summary>
         /// <param name="currency">Currency</param>

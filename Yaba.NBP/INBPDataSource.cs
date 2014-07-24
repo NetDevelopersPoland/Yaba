@@ -18,6 +18,12 @@ namespace NetDevelopersPoland.Yaba.NBP
         /// TODO
         /// </summary>
         /// <returns></returns>
+        Stream GetActualBuySellRatesDataSource();
+
+        /// <summary>
+        /// TODO
+        /// </summary>
+        /// <returns></returns>
         Stream GetArchivalExchangeRatesDataSource(Table table, DateTime date);
     }
 }

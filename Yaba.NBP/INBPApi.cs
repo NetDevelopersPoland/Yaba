@@ -3,7 +3,7 @@
 namespace NetDevelopersPoland.Yaba.NBP
 {
     /// <summary>
-    /// TODO
+    /// NBPApi interface
     /// </summary>
     public interface INBPApi
     {
@@ -13,6 +13,13 @@ namespace NetDevelopersPoland.Yaba.NBP
         /// <param name="currency">Currency</param>
         /// <returns>Actual exchange rate for currency</returns>
         ExchangeRate GetActualExchangeRate(Currency currency);
+
+        /// <summary>
+        /// Get actual buy-sell rate for currency
+        /// </summary>
+        /// <param name="currency">Currency</param>
+        /// <returns>Actual buy-sell rate for currency</returns>
+        BuySellRate GetActualBuySellRate(Currency currency);
 
         /// <summary>
         /// Get archival exchange rate for currency

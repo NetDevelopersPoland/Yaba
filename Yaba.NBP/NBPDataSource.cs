@@ -17,10 +17,16 @@ namespace NetDevelopersPoland.Yaba.NBP
         /// <returns></returns>
         public Stream GetActualExchangeRatesDataSource()
         {
-            string actualExchangeRatesDataSourceUrl = ApiConfiguration.ActualExchangeRatesDataSourceUrl;
-            HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create(actualExchangeRatesDataSourceUrl);
-            _httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-            return _httpWebResponse.GetResponseStream();
+            return GetStreamForUrl(ApiConfiguration.ActualExchangeRatesDataSourceUrl);
+        }
+
+        /// <summary>
+        /// Provides actual buy-sell dates source
+        /// </summary>
+        /// <returns></returns>
+        public Stream GetActualBuySellRatesDataSource()
+        {
+            return GetStreamForUrl(ApiConfiguration.ActualBuySellRatesDataSourceUrl);
         }
 
         /// <summary>
@@ -29,10 +35,15 @@ namespace NetDevelopersPoland.Yaba.NBP
         /// <returns></returns>
         public Stream GetArchivalExchangeRatesDataSource(Table table, DateTime date)
         {
-            string archivalExchangeRatesDataSourceUrl = ArchivalExchangeRatesUrlGenerator.GetUrl(table, date);
-            HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create(archivalExchangeRatesDataSourceUrl);
+            return GetStreamForUrl(ArchivalExchangeRatesUrlGenerator.GetUrl(table, date));
+        }
+
+        private Stream GetStreamForUrl(string url)
+        {
+            HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
             _httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-            return _httpWebResponse.GetResponseStream();
+
+            return _httpWebResponse.GetResponseStream(); 
         }
 
         /// <summary>

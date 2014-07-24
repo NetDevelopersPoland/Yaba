@@ -14,7 +14,7 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
             _NBPDataSource = fixture.GetMockedNBPDataSource();
         }
 
-        public static IEnumerable<object[]> GetActualExchangeRate_TestData
+        public static IEnumerable<object[]> TestDataActualExchangeRates
         {
             get
             {
@@ -60,7 +60,18 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
             }
         }
 
-        public static IEnumerable<object[]> GetArchivalExchangeRate_TestData
+        public static IEnumerable<object[]> TestDataActualBuySellRates
+        {
+            get
+            {
+                return new[] 
+                { 
+                    new object[] { Currency.DKK, 0.5485M, 0.5595M } 
+                };
+            }
+        }
+
+        public static IEnumerable<object[]> TestDataArchivalExchangeRates
         {
             get
             {
@@ -107,7 +118,7 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
         }
 
         [Theory]
-        [PropertyData("GetActualExchangeRate_TestData")]
+        [PropertyData("TestDataActualExchangeRates")]
         public void NBPApi_providedCurrency_shouldReturnActualExchangeRate(Currency providedCurrency, decimal expectedExchangeRateValue)
         {
             // Arrange
@@ -121,8 +132,23 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
         }
 
         [Theory]
-        [PropertyData("GetArchivalExchangeRate_TestData")]
-        public void NBPApi_providedCurrency_shouldReturnArchivalExchangeRate(Currency providedCurrency, Table providedTable, DateTime providedDate, decimal expectedExchangeRateValue)
+        [PropertyData("TestDataActualBuySellRates")]
+        public void NBPApi_providedCurrency_shouldReturnActualBuySellRate(Currency providedCurrency, decimal expectedBuyRateValue, decimal expectedSellRateValue)
+        {
+            // Arrange
+            NBPApi sut = new NBPApi(_NBPDataSource);
+
+            // Act
+            BuySellRate buySellRate = sut.GetActualBuySellRate(providedCurrency);
+
+            // Assert
+            Assert.Equal(expectedBuyRateValue, buySellRate.BuyValue);
+            Assert.Equal(expectedSellRateValue, buySellRate.SellValue);
+        }
+
+        [Theory]
+        [PropertyData("TestDataArchivalExchangeRates")]
+        public void NBPApi_providedCurrency_providedTable_providedDate_shouldReturnArchivalExchangeRate(Currency providedCurrency, Table providedTable, DateTime providedDate, decimal expectedExchangeRateValue)
         {
             // Arrange
             NBPApi sut = new NBPApi(_NBPDataSource);

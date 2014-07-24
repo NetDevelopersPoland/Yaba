@@ -68,6 +68,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="MockedActualBuySellRatesDataSource.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="MockedActualExchangeRatesDataSource.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
