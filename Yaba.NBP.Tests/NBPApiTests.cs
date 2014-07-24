@@ -5,7 +5,7 @@ using Xunit.Extensions;
 namespace NetDevelopersPoland.Yaba.NBP.Tests
 {
     public class NBPApiTests : IUseFixture<NBPApiTestsFixture>
-    {        
+    {
         private INBPDataSource _NBPDataSource;
 
         public void SetFixture(NBPApiTestsFixture fixture)
@@ -13,7 +13,7 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
             _NBPDataSource = fixture.GetMockedNBPDataSource();
         }
 
-        public static IEnumerable<object[]> TestData
+        public static IEnumerable<object[]> TestDataActualExchangeRates
         {
             get
             {
@@ -59,8 +59,16 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
             }
         }
 
+        public static IEnumerable<object[]> TestDataActualBuySellRates
+        {
+            get
+            {
+                return new[] { new object[] { Currency.DKK, 0.5485M, 0.5595M } };
+            }
+        }
+
         [Theory]
-        [PropertyData("TestData")]
+        [PropertyData("TestDataActualExchangeRates")]
         public void NBPApi_providedCurrency_shouldReturnActualExchangeRate(Currency providedCurrency, decimal expectedExchangeRateValue)
         {
             // Arrange
@@ -72,5 +80,21 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
             // Assert
             Assert.Equal(expectedExchangeRateValue, exchangeRate.Value);
         }
+
+        [Theory]
+        [PropertyData("TestDataActualBuySellRates")]
+        public void NBPApi_providedCurrency_shouldReturnActualBuySellRate(Currency providedCurrency, decimal expectedBuyRateValue, decimal expectedSellRateValue)
+        {
+            // Arrange
+            NBPApi sut = new NBPApi(_NBPDataSource);
+
+            // Act
+            BuySellRate buySellRate = sut.GetActualBuySellRate(providedCurrency);
+
+            // Assert
+            Assert.Equal(expectedBuyRateValue, buySellRate.BuyValue);
+            Assert.Equal(expectedSellRateValue, buySellRate.SellValue);
+        }
+
     }
 }

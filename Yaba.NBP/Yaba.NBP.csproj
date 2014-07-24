@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="ApiConfiguration.cs" />
     <Compile Include="ArchivalExchangeRatesUrlGenerator.cs" />
+    <Compile Include="BuySellRate.cs" />
     <Compile Include="Currency.cs" />
     <Compile Include="INBPDataSource.cs" />
     <Compile Include="INBPApi.cs" />
