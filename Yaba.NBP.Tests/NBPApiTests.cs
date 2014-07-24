@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Xunit;
 using Xunit.Extensions;
 
 namespace NetDevelopersPoland.Yaba.NBP.Tests
 {
     public class NBPApiTests : IUseFixture<NBPApiTestsFixture>
-    {        
+    {
         private INBPDataSource _NBPDataSource;
 
         public void SetFixture(NBPApiTestsFixture fixture)
@@ -13,7 +14,7 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
             _NBPDataSource = fixture.GetMockedNBPDataSource();
         }
 
-        public static IEnumerable<object[]> TestData
+        public static IEnumerable<object[]> GetActualExchangeRate_TestData
         {
             get
             {
@@ -59,8 +60,54 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
             }
         }
 
+        public static IEnumerable<object[]> GetArchivalExchangeRate_TestData
+        {
+            get
+            {
+                return new[]
+                {
+                    new object[] { Currency.THB, Table.A, new DateTime(2014, 1, 23), 0.0930M },
+                    new object[] { Currency.USD, Table.A, new DateTime(2014, 1, 23), 3.0559M },
+                    new object[] { Currency.AUD, Table.A, new DateTime(2014, 1, 23), 2.6909M },
+                    new object[] { Currency.HKD, Table.A, new DateTime(2014, 1, 23), 0.3939M },
+                    new object[] { Currency.CAD, Table.A, new DateTime(2014, 1, 23), 2.7415M },
+                    new object[] { Currency.NZD, Table.A, new DateTime(2014, 1, 23), 2.5432M },
+                    new object[] { Currency.SGD, Table.A, new DateTime(2014, 1, 23), 2.3874M },
+                    new object[] { Currency.EUR, Table.A, new DateTime(2014, 1, 23), 4.1679M },
+                    new object[] { Currency.HUF, Table.A, new DateTime(2014, 1, 23), 1.3733M },
+                    new object[] { Currency.CHF, Table.A, new DateTime(2014, 1, 23), 3.3843M },
+                    new object[] { Currency.GBP, Table.A, new DateTime(2014, 1, 23), 5.0732M },
+                    new object[] { Currency.UAH, Table.A, new DateTime(2014, 1, 23), 0.3629M },
+                    new object[] { Currency.JPY, Table.A, new DateTime(2014, 1, 23), 2.9299M },
+                    new object[] { Currency.CZK, Table.A, new DateTime(2014, 1, 23), 0.1516M },
+                    new object[] { Currency.DKK, Table.A, new DateTime(2014, 1, 23), 0.5585M },
+                    new object[] { Currency.ISK, Table.A, new DateTime(2014, 1, 23), 2.6497M },
+                    new object[] { Currency.NOK, Table.A, new DateTime(2014, 1, 23), 0.4993M },
+                    new object[] { Currency.SEK, Table.A, new DateTime(2014, 1, 23), 0.4747M },
+                    new object[] { Currency.HRK, Table.A, new DateTime(2014, 1, 23), 0.5452M },
+                    new object[] { Currency.RON, Table.A, new DateTime(2014, 1, 23), 0.9205M },
+                    new object[] { Currency.BGN, Table.A, new DateTime(2014, 1, 23), 2.1310M },
+                    new object[] { Currency.TRY, Table.A, new DateTime(2014, 1, 23), 1.3440M },
+                    new object[] { Currency.LTL, Table.A, new DateTime(2014, 1, 23), 1.2071M },
+                    new object[] { Currency.ILS, Table.A, new DateTime(2014, 1, 23), 0.8767M },
+                    new object[] { Currency.CLP, Table.A, new DateTime(2014, 1, 23), 0.5634M },
+                    new object[] { Currency.PHP, Table.A, new DateTime(2014, 1, 23), 0.0675M },
+                    new object[] { Currency.MXN, Table.A, new DateTime(2014, 1, 23), 0.2290M },
+                    new object[] { Currency.ZAR, Table.A, new DateTime(2014, 1, 23), 0.2796M },
+                    new object[] { Currency.BRL, Table.A, new DateTime(2014, 1, 23), 1.2883M },
+                    new object[] { Currency.MYR, Table.A, new DateTime(2014, 1, 23), 0.9175M },
+                    new object[] { Currency.RUB, Table.A, new DateTime(2014, 1, 23), 0.0898M },
+                    new object[] { Currency.IDR, Table.A, new DateTime(2014, 1, 23), 2.5500M },
+                    new object[] { Currency.INR, Table.A, new DateTime(2014, 1, 23), 4.9300M },
+                    new object[] { Currency.KRW, Table.A, new DateTime(2014, 1, 23), 0.2846M },
+                    new object[] { Currency.CNY, Table.A, new DateTime(2014, 1, 23), 0.5052M },
+                    new object[] { Currency.XDR, Table.A, new DateTime(2014, 1, 23), 4.7096M }
+                };
+            }
+        }
+
         [Theory]
-        [PropertyData("TestData")]
+        [PropertyData("GetActualExchangeRate_TestData")]
         public void NBPApi_providedCurrency_shouldReturnActualExchangeRate(Currency providedCurrency, decimal expectedExchangeRateValue)
         {
             // Arrange
@@ -68,6 +115,20 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
 
             // Act
             ExchangeRate exchangeRate = sut.GetActualExchangeRate(providedCurrency);
+
+            // Assert
+            Assert.Equal(expectedExchangeRateValue, exchangeRate.Value);
+        }
+
+        [Theory]
+        [PropertyData("GetArchivalExchangeRate_TestData")]
+        public void NBPApi_providedCurrency_shouldReturnArchivalExchangeRate(Currency providedCurrency, Table providedTable, DateTime providedDate, decimal expectedExchangeRateValue)
+        {
+            // Arrange
+            NBPApi sut = new NBPApi(_NBPDataSource);
+
+            // Act
+            ExchangeRate exchangeRate = sut.GetArchivalExchangeRate(providedCurrency, providedTable, providedDate);
 
             // Assert
             Assert.Equal(expectedExchangeRateValue, exchangeRate.Value);

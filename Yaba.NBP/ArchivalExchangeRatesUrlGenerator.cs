@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace NetDevelopersPoland.Yaba.NBP
 {
     /// <summary>
@@ -9,14 +10,15 @@ namespace NetDevelopersPoland.Yaba.NBP
         /// <summary>
         /// TODO
         /// </summary>
-        /// <param name="table"></param>
-        /// <param name="date"></param>
+        /// <param name="table">Table</param>
+        /// <param name="date">Date</param>
         /// <returns></returns>
         public static string GetUrl(Table table, DateTime date)
         {
-            // TODO
+            string formattedDate = date.ToString("yyMMdd");
+            string fileName = "";
 
-            return string.Empty;
+            return string.Format(ApiConfiguration.ArchivalExchangeRatesDataSourceUrl, fileName);
         }
     }
 }
