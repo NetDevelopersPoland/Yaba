@@ -47,6 +47,9 @@
     <Compile Include="ApiConfiguration.cs" />
     <Compile Include="ArchivalExchangeRatesUrlGenerator.cs" />
     <Compile Include="BuySellRate.cs" />
+    <Compile Include="BaseRate.cs" />
+    <Compile Include="IdAttribute.cs" />
+    <Compile Include="Rate.cs" />
     <Compile Include="Currency.cs" />
     <Compile Include="INBPDataSource.cs" />
     <Compile Include="INBPApi.cs" />

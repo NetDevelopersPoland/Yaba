@@ -29,5 +29,12 @@ namespace NetDevelopersPoland.Yaba.NBP
         /// <param name="date">Date</param>
         /// <returns>Archival exchange rate for currency</returns>
         ExchangeRate GetArchivalExchangeRate(Currency currency, Table table, DateTime date);
+
+        /// <summary>
+        /// Get actual base rate
+        /// </summary>
+        /// <param name="rate">Rate type</param>
+        /// <returns>Actual rate</returns>
+        BaseRate GetActualBaseRate(Rate rate);
     }
 }

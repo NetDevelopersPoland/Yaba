@@ -164,6 +164,51 @@ namespace NetDevelopersPoland.Yaba.NBP
         }
 
         /// <summary>
+        /// Get actual base rate
+        /// </summary>
+        /// <param name="rate">Rate type</param>
+        /// <returns>Actual rate</returns>
+        public BaseRate GetActualBaseRate(Rate rate)
+        {
+            Stream actualBaseRatesDataSourceStream = _NBPDataSource.GetActualBaseRatesDataSource();
+            if (actualBaseRatesDataSourceStream.CanSeek)
+                actualBaseRatesDataSourceStream.Seek(0, SeekOrigin.Begin);
+
+            MemoryStream tempStream = new MemoryStream();
+            actualBaseRatesDataSourceStream.CopyTo(tempStream);
+            if (tempStream.CanSeek)
+                tempStream.Seek(0, SeekOrigin.Begin);
+
+            using (StreamReader streamReader = new StreamReader(tempStream, Encoding.GetEncoding("utf-8")))
+            {
+                XDocument xmlDocument = XDocument.Load(new StringReader(streamReader.ReadToEnd()));
+
+                var result = xmlDocument.Element("stopy_procentowe")
+                   .Elements("tabela")
+                   .Single(x => (string)x.Attribute("id") == "stoproc");
+
+                var positionElement = result
+                    .Elements("pozycja")
+                    .Single(x => (string)x.Attribute("id") == rate.GetId());
+
+
+                var valueElement = positionElement.Attribute(XName.Get("oprocentowanie"));
+
+                var validFromElement = positionElement.Attribute(XName.Get("obowiazuje_od"));
+
+                Decimal value = Decimal.Parse(valueElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
+                DateTime validFrom = DateTime.Parse(validFromElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
+
+                return new BaseRate()
+                {
+                    Rate = rate,
+                    Value = value,
+                    ValidFrom = validFrom
+                };
+            }
+        }
+
+        /// <summary>
         /// Dispose
         /// </summary>
         public void Dispose()

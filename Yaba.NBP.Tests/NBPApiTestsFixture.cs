@@ -9,6 +9,7 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
         private MemoryStream _mockedActualExchangeRatesDataSourceStream = new MemoryStream();
         private MemoryStream _mockedActualBuySellRatesDataSourceStream = new MemoryStream();
         private MemoryStream _mockedArchivalExchangeRatesDataSourceStream = new MemoryStream();
+        private MemoryStream _mockedActualBaseRatesDataSourceStream = new MemoryStream();
 
         public NBPApiTestsFixture()
         {
@@ -29,6 +30,13 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
             {
                 tempStream.CopyTo(_mockedArchivalExchangeRatesDataSourceStream);
             }
+
+            string mockedActualBaseRatesDataSourceFilePath = AppDomain.CurrentDomain.BaseDirectory + "\\MockedActualBaseRates.xml";
+            using (FileStream tempStream = File.Open(mockedActualBaseRatesDataSourceFilePath, FileMode.Open))
+            {
+                tempStream.CopyTo(_mockedActualBaseRatesDataSourceStream);
+            }
+
         }
 
         public INBPDataSource GetMockedNBPDataSource()
@@ -37,6 +45,7 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
             mock.Setup(m => m.GetActualExchangeRatesDataSource()).Returns(_mockedActualExchangeRatesDataSourceStream);
             mock.Setup(m => m.GetActualBuySellRatesDataSource()).Returns(_mockedActualBuySellRatesDataSourceStream);
             mock.Setup(m => m.GetArchivalExchangeRatesDataSource(Table.A, new DateTime(2014, 1, 23))).Returns(_mockedArchivalExchangeRatesDataSourceStream);
+            mock.Setup(m => m.GetActualBaseRatesDataSource()).Returns(_mockedActualBaseRatesDataSourceStream);
             return mock.Object;
         }
 
@@ -48,6 +57,8 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
                 _mockedActualBuySellRatesDataSourceStream.Dispose();
             if (_mockedArchivalExchangeRatesDataSourceStream != null)
                 _mockedArchivalExchangeRatesDataSourceStream.Dispose();
+            if (_mockedActualBaseRatesDataSourceStream != null)
+                _mockedActualBaseRatesDataSourceStream.Dispose();
         }
     }
 }

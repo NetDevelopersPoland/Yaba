@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<stopy_procentowe xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    data_publikacji="2013-07-03">
+  <tabela
+      id="stoproc"
+      naglowek="Stopa procentowa:"
+      header="NBP base rates:">
+    <pozycja
+        id="ref"
+        nazwa="Stopa referencyjna"
+        name="Reference rate (minimum money market intervention rate)"
+        odnosnik="1)"
+        oprocentowanie="2,50"
+        obowiazuje_od="2013-07-04" />
+    <pozycja
+        id="lom"
+        nazwa="Stopa lombardowa"
+        name="Lombard rate"
+        oprocentowanie="4,00"
+        obowiazuje_od="2013-07-04" />
+    <pozycja
+        id="dep"
+        nazwa="Stopa depozytowa"
+        name="NBP deposit rate"
+        oprocentowanie="1,00"
+        obowiazuje_od="2013-07-04" />
+    <pozycja
+        id="red"
+        nazwa="Stopa redyskonta weksli"
+        name="Rediscount rate"
+        oprocentowanie="2,75"
+        obowiazuje_od="2013-07-04" />
+  </tabela>
+  <tabela
+      id="storo"
+      naglowek="Stopa rezerwy obowiązkowej:"
+      header="Reserve requirement:">
+    <pozycja
+        id="rozwpw"
+        nazwa="- od środków złotowych i środków   w walutach obcych zgromadzonych na rachunkach bankowych, od środków uzyskanych z tytułu emisji papierów wartościowych "
+        name="- on zloty funds and foreign currency funds held in bank accounts, on funds received from issuance of securities"
+        oprocentowanie="3,50"
+        obowiazuje_od="2010-12-31" />
+    <pozycja
+        id="rorepo"
+        nazwa="- od środków uzyskanych z tytułu operacji repo i sell-buy-back"
+        name="- on funds received from repo and sell-buy-back operations"
+        oprocentowanie="0,00"
+        obowiazuje_od="2012-01-01" />
+    <pozycja
+        id="rowred"
+        nazwa="Oprocentowanie środków rezerwy obowiązkowej"
+        name="Remuneration of holdings of required reserves"
+        odnosnik="2)"
+        oprocentowanie="2,475"
+        obowiazuje_od="2013-07-04" />
+  </tabela>
+  <odnosniki>
+    <odnosnik
+        id="1)"
+        odnosnik="rentowność 7-dniowych bonów pieniężnych"
+        note="yield on 7-day NBP money market bills" />
+    <odnosnik
+        id="2)"
+        odnosnik="0,9 stopy redyskonta weksli - obowiązuje od 2004-05-01"
+        note="0.9 of the rediscount rate - in effect from 2004-05-01" />
+  </odnosniki>
+</stopy_procentowe>

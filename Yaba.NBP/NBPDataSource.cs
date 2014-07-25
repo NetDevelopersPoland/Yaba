@@ -38,12 +38,24 @@ namespace NetDevelopersPoland.Yaba.NBP
             return GetStreamForUrl(ArchivalExchangeRatesUrlGenerator.GetUrl(table, date));
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
+        /// <returns></returns>
+        public Stream GetActualBaseRatesDataSource()
+        {
+            return GetStreamForUrl(ApiConfiguration.ActualBaseRatesDataSourceUrl);
+        }
+
+        
+
+
         private Stream GetStreamForUrl(string url)
         {
             HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
             _httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse();
 
-            return _httpWebResponse.GetResponseStream(); 
+            return _httpWebResponse.GetResponseStream();
         }
 
         /// <summary>

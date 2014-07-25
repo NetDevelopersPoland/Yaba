@@ -117,6 +117,20 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
             }
         }
 
+        public static IEnumerable<object[]> TestDataActualBaseRates
+        {
+            get
+            {
+                return new[]{
+                    new object[] {Rate.Reference, 2.5M, new DateTime(2013,7,4)},
+                    new object[] {Rate.Lombard, 4.0M, new DateTime(2013,7,4)},
+                    new object[] {Rate.Deposit, 1.0M, new DateTime(2013,7,4)},
+                    new object[] {Rate.Rediscount,2.75M, new DateTime(2013,7,4)},
+                };
+            }
+        }
+
+
         [Theory]
         [PropertyData("TestDataActualExchangeRates")]
         public void NBPApi_providedCurrency_shouldReturnActualExchangeRate(Currency providedCurrency, decimal expectedExchangeRateValue)
@@ -159,5 +173,21 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
             // Assert
             Assert.Equal(expectedExchangeRateValue, exchangeRate.Value);
         }
+
+        [Theory]
+        [PropertyData("TestDataActualBaseRates")]
+        public void NBPApi_providedRate_shouldReturnActualBaseRates(Rate rate, decimal value, DateTime ValidFrom)
+        {
+            //Arrange
+            NBPApi sut = new NBPApi(_NBPDataSource);
+
+            //Act
+            var baseRates = sut.GetActualBaseRate(rate);
+
+            //Assert
+            Assert.Equal(value, baseRates.Value);
+            Assert.Equal(ValidFrom, baseRates.ValidFrom);
+        }
+
     }
 }
