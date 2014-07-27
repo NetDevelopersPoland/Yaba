@@ -25,7 +25,7 @@ namespace NetDevelopersPoland.Yaba.NBP
             HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(ApiConfiguration.AvailableFilesList);
             using (HttpWebResponse httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse())
             {
-                using (StreamReader streamReader = new StreamReader(httpWebResponse.GetResponseStream(), Encoding.GetEncoding("iso-8859-2")))
+                using (StreamReader streamReader = new StreamReader(httpWebResponse.GetResponseStream(), ApiConfiguration.DefaultEncoding))
                 {
                     string[] files = streamReader
                         .ReadToEnd()
