@@ -1,4 +1,5 @@
 ﻿using System.Configuration;
+using System.Globalization;
 using System.Text;
 
 namespace NetDevelopersPoland.Yaba.NBP
@@ -9,11 +10,19 @@ namespace NetDevelopersPoland.Yaba.NBP
     internal static class ApiConfiguration
     {
         /// <summary>
-        /// TODO
+        /// Default encoding
         /// </summary>
         public static Encoding DefaultEncoding
         {
             get { return Encoding.GetEncoding("iso-8859-2"); }
+        }
+
+        /// <summary>
+        /// Default culture
+        /// </summary>
+        public static CultureInfo DefaultCulture
+        {
+            get { return CultureInfo.GetCultureInfo("pl-PL"); }
         }
 
         /// <summary>

@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Xml.Linq;
 
 namespace NetDevelopersPoland.Yaba.NBP
@@ -48,7 +46,8 @@ namespace NetDevelopersPoland.Yaba.NBP
 
             using (StreamReader streamReader = new StreamReader(tempStream, ApiConfiguration.DefaultEncoding))
             {
-                XDocument xmlDocument = XDocument.Load(new StringReader(streamReader.ReadToEnd()));
+                XDocument xmlDocument = XDocument.Load(streamReader);
+
                 XElement positionElement = xmlDocument
                     .Descendants(XName.Get("kod_waluty"))
                     .SingleOrDefault(x => x.Value == Enum.GetName(currency.GetType(), currency))
@@ -60,8 +59,8 @@ namespace NetDevelopersPoland.Yaba.NBP
                     .Descendants(XName.Get("data_publikacji"))
                     .SingleOrDefault();
 
-                decimal value = Decimal.Parse(valueElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
-                DateTime publicationDate = DateTime.Parse(publicationDateElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
+                decimal value = Decimal.Parse(valueElement.Value, ApiConfiguration.DefaultCulture);
+                DateTime publicationDate = DateTime.Parse(publicationDateElement.Value, ApiConfiguration.DefaultCulture);
 
                 return new ExchangeRate()
                 {
@@ -90,7 +89,8 @@ namespace NetDevelopersPoland.Yaba.NBP
 
             using (StreamReader streamReader = new StreamReader(tempStream, ApiConfiguration.DefaultEncoding))
             {
-                XDocument xmlDocument = XDocument.Load(new StringReader(streamReader.ReadToEnd()));
+                XDocument xmlDocument = XDocument.Load(streamReader);
+
                 XElement positionElement = xmlDocument
                     .Descendants(XName.Get("kod_waluty"))
                     .SingleOrDefault(x => x.Value == Enum.GetName(currency.GetType(), currency))
@@ -105,9 +105,9 @@ namespace NetDevelopersPoland.Yaba.NBP
                     .Descendants(XName.Get("data_publikacji"))
                     .SingleOrDefault();
 
-                decimal buyValue = Decimal.Parse(buyValueElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
-                decimal sellValue = Decimal.Parse(sellValueElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
-                DateTime publicationDate = DateTime.Parse(publicationDateElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
+                decimal buyValue = Decimal.Parse(buyValueElement.Value, ApiConfiguration.DefaultCulture);
+                decimal sellValue = Decimal.Parse(sellValueElement.Value, ApiConfiguration.DefaultCulture);
+                DateTime publicationDate = DateTime.Parse(publicationDateElement.Value, ApiConfiguration.DefaultCulture);
 
                 return new BuySellRate()
                 {
@@ -137,7 +137,7 @@ namespace NetDevelopersPoland.Yaba.NBP
 
             using (StreamReader streamReader = new StreamReader(tempStream, ApiConfiguration.DefaultEncoding))
             {
-                XDocument xmlDocument = XDocument.Load(new StringReader(streamReader.ReadToEnd()));
+                XDocument xmlDocument = XDocument.Load(streamReader);
 
                 var result = xmlDocument.Element("stopy_procentowe")
                    .Elements("tabela")
@@ -152,8 +152,8 @@ namespace NetDevelopersPoland.Yaba.NBP
 
                 var validFromElement = positionElement.Attribute(XName.Get("obowiazuje_od"));
 
-                decimal value = Decimal.Parse(valueElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
-                DateTime validFrom = DateTime.Parse(validFromElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
+                decimal value = Decimal.Parse(valueElement.Value, ApiConfiguration.DefaultCulture);
+                DateTime validFrom = DateTime.Parse(validFromElement.Value, ApiConfiguration.DefaultCulture);
 
                 return new BaseRate()
                 {
@@ -184,7 +184,8 @@ namespace NetDevelopersPoland.Yaba.NBP
 
             using (StreamReader streamReader = new StreamReader(tempStream, ApiConfiguration.DefaultEncoding))
             {
-                XDocument xmlDocument = XDocument.Load(new StringReader(streamReader.ReadToEnd()));
+                XDocument xmlDocument = XDocument.Load(streamReader);
+
                 XElement positionElement = xmlDocument
                     .Descendants(XName.Get("kod_waluty"))
                     .SingleOrDefault(x => x.Value == Enum.GetName(currency.GetType(), currency))
@@ -196,8 +197,8 @@ namespace NetDevelopersPoland.Yaba.NBP
                     .Descendants(XName.Get("data_publikacji"))
                     .SingleOrDefault();
 
-                decimal value = Decimal.Parse(valueElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
-                DateTime publicationDate = DateTime.Parse(publicationDateElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
+                decimal value = Decimal.Parse(valueElement.Value, ApiConfiguration.DefaultCulture);
+                DateTime publicationDate = DateTime.Parse(publicationDateElement.Value, ApiConfiguration.DefaultCulture);
 
                 return new ExchangeRate()
                 {
