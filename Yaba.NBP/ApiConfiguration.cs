@@ -1,4 +1,5 @@
 ﻿using System.Configuration;
+using System.Text;
 
 namespace NetDevelopersPoland.Yaba.NBP
 {
@@ -7,6 +8,14 @@ namespace NetDevelopersPoland.Yaba.NBP
     /// </summary>
     internal static class ApiConfiguration
     {
+        /// <summary>
+        /// TODO
+        /// </summary>
+        public static Encoding DefaultEncoding
+        {
+            get { return Encoding.GetEncoding("iso-8859-2"); }
+        }
+
         /// <summary>
         /// TODO
         /// </summary>

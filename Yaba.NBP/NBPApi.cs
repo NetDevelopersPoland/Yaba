@@ -46,7 +46,7 @@ namespace NetDevelopersPoland.Yaba.NBP
             if (tempStream.CanSeek)
                 tempStream.Seek(0, SeekOrigin.Begin);
 
-            using (StreamReader streamReader = new StreamReader(tempStream, Encoding.GetEncoding("iso-8859-2")))
+            using (StreamReader streamReader = new StreamReader(tempStream, ApiConfiguration.DefaultEncoding))
             {
                 XDocument xmlDocument = XDocument.Load(new StringReader(streamReader.ReadToEnd()));
                 XElement positionElement = xmlDocument
@@ -88,7 +88,7 @@ namespace NetDevelopersPoland.Yaba.NBP
             if (tempStream.CanSeek)
                 tempStream.Seek(0, SeekOrigin.Begin);
 
-            using (StreamReader streamReader = new StreamReader(tempStream, Encoding.GetEncoding("iso-8859-2")))
+            using (StreamReader streamReader = new StreamReader(tempStream, ApiConfiguration.DefaultEncoding))
             {
                 XDocument xmlDocument = XDocument.Load(new StringReader(streamReader.ReadToEnd()));
                 XElement positionElement = xmlDocument
@@ -135,7 +135,7 @@ namespace NetDevelopersPoland.Yaba.NBP
             if (tempStream.CanSeek)
                 tempStream.Seek(0, SeekOrigin.Begin);
 
-            using (StreamReader streamReader = new StreamReader(tempStream, Encoding.GetEncoding("utf-8")))
+            using (StreamReader streamReader = new StreamReader(tempStream, ApiConfiguration.DefaultEncoding))
             {
                 XDocument xmlDocument = XDocument.Load(new StringReader(streamReader.ReadToEnd()));
 
@@ -182,7 +182,7 @@ namespace NetDevelopersPoland.Yaba.NBP
             if (tempStream.CanSeek)
                 tempStream.Seek(0, SeekOrigin.Begin);
 
-            using (StreamReader streamReader = new StreamReader(tempStream, Encoding.GetEncoding("iso-8859-2")))
+            using (StreamReader streamReader = new StreamReader(tempStream, ApiConfiguration.DefaultEncoding))
             {
                 XDocument xmlDocument = XDocument.Load(new StringReader(streamReader.ReadToEnd()));
                 XElement positionElement = xmlDocument
