@@ -60,7 +60,7 @@ namespace NetDevelopersPoland.Yaba.NBP
                     .Descendants(XName.Get("data_publikacji"))
                     .SingleOrDefault();
 
-                Decimal value = Decimal.Parse(valueElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
+                decimal value = Decimal.Parse(valueElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
                 DateTime publicationDate = DateTime.Parse(publicationDateElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
 
                 return new ExchangeRate()
@@ -105,8 +105,8 @@ namespace NetDevelopersPoland.Yaba.NBP
                     .Descendants(XName.Get("data_publikacji"))
                     .SingleOrDefault();
 
-                Decimal buyValue = Decimal.Parse(buyValueElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
-                Decimal sellValue = Decimal.Parse(sellValueElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
+                decimal buyValue = Decimal.Parse(buyValueElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
+                decimal sellValue = Decimal.Parse(sellValueElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
                 DateTime publicationDate = DateTime.Parse(publicationDateElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
 
                 return new BuySellRate()
@@ -152,7 +152,7 @@ namespace NetDevelopersPoland.Yaba.NBP
 
                 var validFromElement = positionElement.Attribute(XName.Get("obowiazuje_od"));
 
-                Decimal value = Decimal.Parse(valueElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
+                decimal value = Decimal.Parse(valueElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
                 DateTime validFrom = DateTime.Parse(validFromElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
 
                 return new BaseRate()
@@ -196,7 +196,7 @@ namespace NetDevelopersPoland.Yaba.NBP
                     .Descendants(XName.Get("data_publikacji"))
                     .SingleOrDefault();
 
-                Decimal value = Decimal.Parse(valueElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
+                decimal value = Decimal.Parse(valueElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
                 DateTime publicationDate = DateTime.Parse(publicationDateElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
 
                 return new ExchangeRate()
