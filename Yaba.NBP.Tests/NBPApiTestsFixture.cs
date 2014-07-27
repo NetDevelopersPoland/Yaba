@@ -13,25 +13,25 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
 
         public NBPApiTestsFixture()
         {
-            string mockedActualExchangeRatesDataSourceFilePath = AppDomain.CurrentDomain.BaseDirectory + "\\MockedActualExchangeRatesDataSource.xml";
+            string mockedActualExchangeRatesDataSourceFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "MockedActualExchangeRatesDataSource.xml");
             using (FileStream tempStream = File.Open(mockedActualExchangeRatesDataSourceFilePath, FileMode.Open))
             {
                 tempStream.CopyTo(_mockedActualExchangeRatesDataSourceStream);
             }
 
-            string mockedActualBuySellRatesDataSourceFilePath = AppDomain.CurrentDomain.BaseDirectory + "\\MockedActualBuySellRatesDataSource.xml";
+            string mockedActualBuySellRatesDataSourceFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "MockedActualBuySellRatesDataSource.xml");
             using (FileStream tempStream = File.Open(mockedActualBuySellRatesDataSourceFilePath, FileMode.Open))
             {
                 tempStream.CopyTo(_mockedActualBuySellRatesDataSourceStream);
             }
 
-            string mockedActualBaseRatesDataSourceFilePath = AppDomain.CurrentDomain.BaseDirectory + "\\MockedActualBaseRates.xml";
+            string mockedActualBaseRatesDataSourceFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "MockedActualBaseRates.xml");
             using (FileStream tempStream = File.Open(mockedActualBaseRatesDataSourceFilePath, FileMode.Open))
             {
                 tempStream.CopyTo(_mockedActualBaseRatesDataSourceStream);
             }
 
-            string mockedArchivalExchangeRatesDataSourceFilePath = AppDomain.CurrentDomain.BaseDirectory + "\\MockedArchivalExchangeRatesDataSource.xml";
+            string mockedArchivalExchangeRatesDataSourceFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "MockedArchivalExchangeRatesDataSource.xml");
             using (FileStream tempStream = File.Open(mockedArchivalExchangeRatesDataSourceFilePath, FileMode.Open))
             {
                 tempStream.CopyTo(_mockedArchivalExchangeRatesDataSourceStream);
