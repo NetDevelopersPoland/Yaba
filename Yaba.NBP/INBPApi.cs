@@ -22,6 +22,13 @@ namespace NetDevelopersPoland.Yaba.NBP
         BuySellRate GetActualBuySellRate(Currency currency);
 
         /// <summary>
+        /// Get actual base rate
+        /// </summary>
+        /// <param name="rate">Rate type</param>
+        /// <returns>Actual rate</returns>
+        BaseRate GetActualBaseRate(Rate rate);
+
+        /// <summary>
         /// Get archival exchange rate for currency
         /// </summary>
         /// <param name="currency">Currency</param>
@@ -29,12 +36,5 @@ namespace NetDevelopersPoland.Yaba.NBP
         /// <param name="date">Date</param>
         /// <returns>Archival exchange rate for currency</returns>
         ExchangeRate GetArchivalExchangeRate(Currency currency, Table table, DateTime date);
-
-        /// <summary>
-        /// Get actual base rate
-        /// </summary>
-        /// <param name="rate">Rate type</param>
-        /// <returns>Actual rate</returns>
-        BaseRate GetActualBaseRate(Rate rate);
     }
 }

@@ -33,22 +33,19 @@ namespace NetDevelopersPoland.Yaba.NBP
         /// TODO
         /// </summary>
         /// <returns></returns>
-        public Stream GetArchivalExchangeRatesDataSource(Table table, DateTime date)
+        public Stream GetActualBaseRatesDataSource()
         {
-            return GetStreamForUrl(ArchivalExchangeRatesUrlGenerator.GetUrl(table, date));
+            return GetStreamForUrl(ApiConfiguration.ActualBaseRatesDataSourceUrl);
         }
 
         /// <summary>
         /// TODO
         /// </summary>
         /// <returns></returns>
-        public Stream GetActualBaseRatesDataSource()
+        public Stream GetArchivalExchangeRatesDataSource(Table table, DateTime date)
         {
-            return GetStreamForUrl(ApiConfiguration.ActualBaseRatesDataSourceUrl);
+            return GetStreamForUrl(ArchivalExchangeRatesUrlGenerator.GetUrl(table, date));
         }
-
-        
-
 
         private Stream GetStreamForUrl(string url)
         {

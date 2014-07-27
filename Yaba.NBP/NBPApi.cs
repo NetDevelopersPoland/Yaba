@@ -120,50 +120,6 @@ namespace NetDevelopersPoland.Yaba.NBP
         }
 
         /// <summary>
-        /// Get archival exchange rate for currency
-        /// </summary>
-        /// <param name="currency">Currency</param>
-        /// <param name="table">Table</param>
-        /// <param name="date">Date</param>
-        /// <returns>Archival exchange rate for currency</returns>
-        public ExchangeRate GetArchivalExchangeRate(Currency currency, Table table, DateTime date)
-        {
-            Stream archivalExchangeRatesDataSourceStream = _NBPDataSource.GetArchivalExchangeRatesDataSource(table, date);
-            if (archivalExchangeRatesDataSourceStream.CanSeek)
-                archivalExchangeRatesDataSourceStream.Seek(0, SeekOrigin.Begin);
-
-            MemoryStream tempStream = new MemoryStream();
-            archivalExchangeRatesDataSourceStream.CopyTo(tempStream);
-            if (tempStream.CanSeek)
-                tempStream.Seek(0, SeekOrigin.Begin);
-
-            using (StreamReader streamReader = new StreamReader(tempStream, Encoding.GetEncoding("iso-8859-2")))
-            {
-                XDocument xmlDocument = XDocument.Load(new StringReader(streamReader.ReadToEnd()));
-                XElement positionElement = xmlDocument
-                    .Descendants(XName.Get("kod_waluty"))
-                    .SingleOrDefault(x => x.Value == Enum.GetName(currency.GetType(), currency))
-                    .Parent;
-                XElement valueElement = positionElement
-                    .Elements(XName.Get("kurs_sredni"))
-                    .SingleOrDefault();
-                XElement publicationDateElement = xmlDocument
-                    .Descendants(XName.Get("data_publikacji"))
-                    .SingleOrDefault();
-
-                Decimal value = Decimal.Parse(valueElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
-                DateTime publicationDate = DateTime.Parse(publicationDateElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
-
-                return new ExchangeRate()
-                {
-                    Value = value,
-                    Currency = currency,
-                    PublicationDate = publicationDate
-                };
-            }
-        }
-
-        /// <summary>
         /// Get actual base rate
         /// </summary>
         /// <param name="rate">Rate type</param>
@@ -204,6 +160,50 @@ namespace NetDevelopersPoland.Yaba.NBP
                     Rate = rate,
                     Value = value,
                     ValidFrom = validFrom
+                };
+            }
+        }
+
+        /// <summary>
+        /// Get archival exchange rate for currency
+        /// </summary>
+        /// <param name="currency">Currency</param>
+        /// <param name="table">Table</param>
+        /// <param name="date">Date</param>
+        /// <returns>Archival exchange rate for currency</returns>
+        public ExchangeRate GetArchivalExchangeRate(Currency currency, Table table, DateTime date)
+        {
+            Stream archivalExchangeRatesDataSourceStream = _NBPDataSource.GetArchivalExchangeRatesDataSource(table, date);
+            if (archivalExchangeRatesDataSourceStream.CanSeek)
+                archivalExchangeRatesDataSourceStream.Seek(0, SeekOrigin.Begin);
+
+            MemoryStream tempStream = new MemoryStream();
+            archivalExchangeRatesDataSourceStream.CopyTo(tempStream);
+            if (tempStream.CanSeek)
+                tempStream.Seek(0, SeekOrigin.Begin);
+
+            using (StreamReader streamReader = new StreamReader(tempStream, Encoding.GetEncoding("iso-8859-2")))
+            {
+                XDocument xmlDocument = XDocument.Load(new StringReader(streamReader.ReadToEnd()));
+                XElement positionElement = xmlDocument
+                    .Descendants(XName.Get("kod_waluty"))
+                    .SingleOrDefault(x => x.Value == Enum.GetName(currency.GetType(), currency))
+                    .Parent;
+                XElement valueElement = positionElement
+                    .Elements(XName.Get("kurs_sredni"))
+                    .SingleOrDefault();
+                XElement publicationDateElement = xmlDocument
+                    .Descendants(XName.Get("data_publikacji"))
+                    .SingleOrDefault();
+
+                Decimal value = Decimal.Parse(valueElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
+                DateTime publicationDate = DateTime.Parse(publicationDateElement.Value, CultureInfo.GetCultureInfo("pl-PL"));
+
+                return new ExchangeRate()
+                {
+                    Value = value,
+                    Currency = currency,
+                    PublicationDate = publicationDate
                 };
             }
         }

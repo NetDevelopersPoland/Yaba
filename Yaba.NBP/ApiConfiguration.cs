@@ -34,18 +34,17 @@ namespace NetDevelopersPoland.Yaba.NBP
         /// <summary>
         /// TODO
         /// </summary>
-        public static string ArchivalExchangeRatesDataSourceUrl
-        {
-            get { return ConfigurationManager.AppSettings["ArchivalExchangeRatesDataSourceUrl"].ToString(); }
-        }
-
-        /// <summary>
-        /// TODO
-        /// </summary>
         public static string ActualBaseRatesDataSourceUrl
         {
             get { return ConfigurationManager.AppSettings["ActualBaseRatesDataSourceUrl"].ToString(); }
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
+        public static string ArchivalExchangeRatesDataSourceUrl
+        {
+            get { return ConfigurationManager.AppSettings["ArchivalExchangeRatesDataSourceUrl"].ToString(); }
+        }
     }
 }
