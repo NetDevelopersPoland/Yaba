@@ -7,7 +7,7 @@ namespace NetDevelopersPoland.Yaba.NBP
     /// <summary>
     /// TODO
     /// </summary>
-    public class NBPDataSource : INBPDataSource
+    internal class NBPDataSource : INBPDataSource
     {
         private HttpWebResponse _httpWebResponse;
 

@@ -23,7 +23,7 @@ namespace NetDevelopersPoland.Yaba.NBP
         /// <summary>
         /// Creates new NBPApi instance
         /// </summary>
-        public NBPApi(INBPDataSource NBPDataSource)
+        internal NBPApi(INBPDataSource NBPDataSource)
         {
             _NBPDataSource = NBPDataSource;
         }
