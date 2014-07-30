@@ -10,22 +10,22 @@ namespace NetDevelopersPoland.Yaba.NBP
     /// </summary>
     public class NBPApi : INBPApi, IDisposable
     {
-        private INBPDataSource _NBPDataSource;
+        private INBPDataSource _nbpDataSource;
 
         /// <summary>
         /// Creates new NBPApi instance
         /// </summary>
         public NBPApi()
+            : this(new NBPDataSource())
         {
-            _NBPDataSource = new NBPDataSource();
         }
 
         /// <summary>
         /// Creates new NBPApi instance
         /// </summary>
-        internal NBPApi(INBPDataSource NBPDataSource)
+        internal NBPApi(INBPDataSource nbpDataSource)
         {
-            _NBPDataSource = NBPDataSource;
+            _nbpDataSource = nbpDataSource;
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace NetDevelopersPoland.Yaba.NBP
         /// <returns>Actual exchange rate for currency</returns>
         public ExchangeRate GetActualExchangeRate(Currency currency)
         {
-            Stream actualExchangeRatesDataSourceStream = _NBPDataSource.GetActualExchangeRatesDataSource();
+            Stream actualExchangeRatesDataSourceStream = _nbpDataSource.GetActualExchangeRatesDataSource();
             if (actualExchangeRatesDataSourceStream.CanSeek)
                 actualExchangeRatesDataSourceStream.Seek(0, SeekOrigin.Begin);
 
@@ -78,7 +78,7 @@ namespace NetDevelopersPoland.Yaba.NBP
         /// <returns>Return actual buy-sell rates for currency</returns>
         public BuySellRate GetActualBuySellRate(Currency currency)
         {
-            Stream actualBuySellRatesDataSource = _NBPDataSource.GetActualBuySellRatesDataSource();
+            Stream actualBuySellRatesDataSource = _nbpDataSource.GetActualBuySellRatesDataSource();
             if (actualBuySellRatesDataSource.CanSeek)
                 actualBuySellRatesDataSource.Seek(0, SeekOrigin.Begin);
 
@@ -126,7 +126,7 @@ namespace NetDevelopersPoland.Yaba.NBP
         /// <returns>Actual rate</returns>
         public BaseRate GetActualBaseRate(Rate rate)
         {
-            Stream actualBaseRatesDataSourceStream = _NBPDataSource.GetActualBaseRatesDataSource();
+            Stream actualBaseRatesDataSourceStream = _nbpDataSource.GetActualBaseRatesDataSource();
             if (actualBaseRatesDataSourceStream.CanSeek)
                 actualBaseRatesDataSourceStream.Seek(0, SeekOrigin.Begin);
 
@@ -173,7 +173,7 @@ namespace NetDevelopersPoland.Yaba.NBP
         /// <returns>Archival exchange rate for currency</returns>
         public ExchangeRate GetArchivalExchangeRate(Currency currency, Table table, DateTime date)
         {
-            Stream archivalExchangeRatesDataSourceStream = _NBPDataSource.GetArchivalExchangeRatesDataSource(table, date);
+            Stream archivalExchangeRatesDataSourceStream = _nbpDataSource.GetArchivalDataSource(table, date);
             if (archivalExchangeRatesDataSourceStream.CanSeek)
                 archivalExchangeRatesDataSourceStream.Seek(0, SeekOrigin.Begin);
 
@@ -214,8 +214,8 @@ namespace NetDevelopersPoland.Yaba.NBP
         /// </summary>
         public void Dispose()
         {
-            if (_NBPDataSource != null)
-                _NBPDataSource.Dispose();
+            if (_nbpDataSource != null)
+                _nbpDataSource.Dispose();
         }
     }
 }

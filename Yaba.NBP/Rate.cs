@@ -1,5 +1,4 @@
-﻿
-namespace NetDevelopersPoland.Yaba.NBP
+﻿namespace NetDevelopersPoland.Yaba.NBP
 {
     /// <summary>
     /// Rates

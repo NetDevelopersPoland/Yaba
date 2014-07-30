@@ -30,6 +30,6 @@ namespace NetDevelopersPoland.Yaba.NBP
         /// TODO
         /// </summary>
         /// <returns></returns>
-        Stream GetArchivalExchangeRatesDataSource(Table table, DateTime date);
+        Stream GetArchivalDataSource(Table table, DateTime date);
     }
 }

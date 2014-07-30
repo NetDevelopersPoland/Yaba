@@ -45,7 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiConfiguration.cs" />
-    <Compile Include="ArchivalExchangeRatesUrlGenerator.cs" />
+    <Compile Include="UrlGeneratorDataSource.cs" />
+    <Compile Include="IUrlGeneratorDataSource.cs" />
+    <Compile Include="UrlGenerator.cs" />
     <Compile Include="BuySellRate.cs" />
     <Compile Include="BaseRate.cs" />
     <Compile Include="IdAttribute.cs" />

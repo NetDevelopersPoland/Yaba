@@ -1,22 +1,23 @@
-﻿using System;
+﻿using NetDevelopersPoland.Yaba.NBP.Tests.Fixtures;
+using System;
 using System.Collections.Generic;
 using Xunit;
 using Xunit.Extensions;
 
 namespace NetDevelopersPoland.Yaba.NBP.Tests
 {
-    public class NBPApiTests : IUseFixture<NBPApiTestsFixture>
+    public class NBPApiTests : IUseFixture<NBPApiTestsFixture>, IDisposable
     {
-        private INBPDataSource _NBPDataSource;
+        private INBPDataSource _mockedNbpDataSource;
 
         public void SetFixture(NBPApiTestsFixture fixture)
         {
-            _NBPDataSource = fixture.GetMockedNBPDataSource();
+            _mockedNbpDataSource = fixture.GetMockedNBPDataSource();
         }
 
         #region Test data
 
-        public static IEnumerable<object[]> TestDataActualExchangeRates
+        public static IEnumerable<object[]> ActualExchangeRatesTestData
         {
             get
             {
@@ -62,7 +63,7 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
             }
         }
 
-        public static IEnumerable<object[]> TestDataActualBuySellRates
+        public static IEnumerable<object[]> ActualBuySellRatesTestData
         {
             get
             {
@@ -73,21 +74,21 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
             }
         }
 
-        public static IEnumerable<object[]> TestDataActualBaseRates
+        public static IEnumerable<object[]> ActualBaseRatesTestData
         {
             get
             {
                 return new[]
                 {
-                    new object[] { Rate.Reference, 2.5M, new DateTime(2013, 7, 4) },
-                    new object[] { Rate.Lombard, 4.0M, new DateTime(2013, 7, 4) },
-                    new object[] { Rate.Deposit, 1.0M, new DateTime(2013, 7, 4) },
+                    new object[] { Rate.Reference,  2.5M,  new DateTime(2013, 7, 4) },
+                    new object[] { Rate.Lombard,    4.0M,  new DateTime(2013, 7, 4) },
+                    new object[] { Rate.Deposit,    1.0M,  new DateTime(2013, 7, 4) },
                     new object[] { Rate.Rediscount, 2.75M, new DateTime(2013, 7, 4) }
                 };
             }
         }
 
-        public static IEnumerable<object[]> TestDataArchivalExchangeRates
+        public static IEnumerable<object[]> ArchivalExchangeRatesTestData
         {
             get
             {
@@ -136,11 +137,11 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
         #endregion
 
         [Theory]
-        [PropertyData("TestDataActualExchangeRates")]
+        [PropertyData("ActualExchangeRatesTestData")]
         public void NBPApi_providedCurrency_shouldReturnActualExchangeRate(Currency providedCurrency, decimal expectedExchangeRateValue)
         {
             // Arrange
-            NBPApi sut = new NBPApi(_NBPDataSource);
+            NBPApi sut = new NBPApi(_mockedNbpDataSource);
 
             // Act
             ExchangeRate exchangeRate = sut.GetActualExchangeRate(providedCurrency);
@@ -150,11 +151,11 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
         }
 
         [Theory]
-        [PropertyData("TestDataActualBuySellRates")]
+        [PropertyData("ActualBuySellRatesTestData")]
         public void NBPApi_providedCurrency_shouldReturnActualBuySellRate(Currency providedCurrency, decimal expectedBuyRateValue, decimal expectedSellRateValue)
         {
             // Arrange
-            NBPApi sut = new NBPApi(_NBPDataSource);
+            NBPApi sut = new NBPApi(_mockedNbpDataSource);
 
             // Act
             BuySellRate buySellRate = sut.GetActualBuySellRate(providedCurrency);
@@ -165,11 +166,11 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
         }
 
         [Theory]
-        [PropertyData("TestDataActualBaseRates")]
+        [PropertyData("ActualBaseRatesTestData")]
         public void NBPApi_providedRate_shouldReturnActualBaseRates(Rate rate, decimal value, DateTime ValidFrom)
         {
             // Arrange
-            NBPApi sut = new NBPApi(_NBPDataSource);
+            NBPApi sut = new NBPApi(_mockedNbpDataSource);
 
             // Act
             BaseRate baseRates = sut.GetActualBaseRate(rate);
@@ -180,17 +181,23 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
         }
 
         [Theory]
-        [PropertyData("TestDataArchivalExchangeRates")]
+        [PropertyData("ArchivalExchangeRatesTestData")]
         public void NBPApi_providedCurrency_providedTable_providedDate_shouldReturnArchivalExchangeRate(Currency providedCurrency, Table providedTable, DateTime providedDate, decimal expectedExchangeRateValue)
         {
             // Arrange
-            NBPApi sut = new NBPApi(_NBPDataSource);
+            NBPApi sut = new NBPApi(_mockedNbpDataSource);
 
             // Act
             ExchangeRate exchangeRate = sut.GetArchivalExchangeRate(providedCurrency, providedTable, providedDate);
 
             // Assert
             Assert.Equal(expectedExchangeRateValue, exchangeRate.Value);
+        }
+
+        public void Dispose()
+        {
+            if (_mockedNbpDataSource != null)
+                _mockedNbpDataSource.Dispose();
         }
     }
 }

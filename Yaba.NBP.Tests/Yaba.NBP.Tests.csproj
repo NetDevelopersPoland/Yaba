@@ -51,13 +51,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UrlGeneratorTests.cs" />
     <Compile Include="NBPApiTests.cs" />
-    <Compile Include="NBPApiTestsFixture.cs" />
+    <Compile Include="Fixtures\NBPApiTestsFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Fixtures\UrlGeneratorTestsFixture.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Yaba.NBP\App.config">
       <Link>App.config</Link>
+      <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -68,16 +71,19 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MockedActualBuySellRatesDataSource.xml">
+    <Content Include="Mocks\MockedArchivalDataSourcesList.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="MockedActualExchangeRatesDataSource.xml">
+    <Content Include="Mocks\MockedActualBuySellRatesDataSource.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="MockedArchivalExchangeRatesDataSource.xml">
+    <Content Include="Mocks\MockedActualExchangeRatesDataSource.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="MockedActualBaseRates.xml">
+    <Content Include="Mocks\MockedArchivalExchangeRatesDataSource.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mocks\MockedActualBaseRatesDataSource.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

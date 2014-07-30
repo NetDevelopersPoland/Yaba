@@ -2,7 +2,7 @@
 using System;
 using System.IO;
 
-namespace NetDevelopersPoland.Yaba.NBP.Tests
+namespace NetDevelopersPoland.Yaba.NBP.Tests.Fixtures
 {
     public class NBPApiTestsFixture : IDisposable
     {
@@ -13,25 +13,25 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
 
         public NBPApiTestsFixture()
         {
-            string mockedActualExchangeRatesDataSourceFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "MockedActualExchangeRatesDataSource.xml");
+            string mockedActualExchangeRatesDataSourceFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Mocks", "MockedActualExchangeRatesDataSource.xml");
             using (FileStream tempStream = File.Open(mockedActualExchangeRatesDataSourceFilePath, FileMode.Open))
             {
                 tempStream.CopyTo(_mockedActualExchangeRatesDataSourceStream);
             }
 
-            string mockedActualBuySellRatesDataSourceFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "MockedActualBuySellRatesDataSource.xml");
+            string mockedActualBuySellRatesDataSourceFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Mocks", "MockedActualBuySellRatesDataSource.xml");
             using (FileStream tempStream = File.Open(mockedActualBuySellRatesDataSourceFilePath, FileMode.Open))
             {
                 tempStream.CopyTo(_mockedActualBuySellRatesDataSourceStream);
             }
 
-            string mockedActualBaseRatesDataSourceFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "MockedActualBaseRates.xml");
+            string mockedActualBaseRatesDataSourceFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Mocks", "MockedActualBaseRatesDataSource.xml");
             using (FileStream tempStream = File.Open(mockedActualBaseRatesDataSourceFilePath, FileMode.Open))
             {
                 tempStream.CopyTo(_mockedActualBaseRatesDataSourceStream);
             }
 
-            string mockedArchivalExchangeRatesDataSourceFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "MockedArchivalExchangeRatesDataSource.xml");
+            string mockedArchivalExchangeRatesDataSourceFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Mocks", "MockedArchivalExchangeRatesDataSource.xml");
             using (FileStream tempStream = File.Open(mockedArchivalExchangeRatesDataSourceFilePath, FileMode.Open))
             {
                 tempStream.CopyTo(_mockedArchivalExchangeRatesDataSourceStream);
@@ -45,7 +45,7 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
             mock.Setup(m => m.GetActualExchangeRatesDataSource()).Returns(_mockedActualExchangeRatesDataSourceStream);
             mock.Setup(m => m.GetActualBuySellRatesDataSource()).Returns(_mockedActualBuySellRatesDataSourceStream);
             mock.Setup(m => m.GetActualBaseRatesDataSource()).Returns(_mockedActualBaseRatesDataSourceStream);
-            mock.Setup(m => m.GetArchivalExchangeRatesDataSource(Table.A, new DateTime(2014, 1, 23))).Returns(_mockedArchivalExchangeRatesDataSourceStream);
+            mock.Setup(m => m.GetArchivalDataSource(Table.A, new DateTime(2014, 1, 23))).Returns(_mockedArchivalExchangeRatesDataSourceStream);
 
             return mock.Object;
         }

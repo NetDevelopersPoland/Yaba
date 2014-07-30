@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 using System.Globalization;
 using System.Text;
 
@@ -26,11 +27,11 @@ namespace NetDevelopersPoland.Yaba.NBP
         }
 
         /// <summary>
-        /// TODO
+        /// First archival data source date
         /// </summary>
-        public static string AvailableFilesList
+        public static DateTime FirstArchivalDataSourceDate
         {
-            get { return ConfigurationManager.AppSettings["AvailableFilesList"].ToString(); }
+            get { return new DateTime(2002, 1, 2); }
         }
 
         /// <summary>
@@ -60,9 +61,17 @@ namespace NetDevelopersPoland.Yaba.NBP
         /// <summary>
         /// TODO
         /// </summary>
-        public static string ArchivalExchangeRatesDataSourceUrl
+        public static string ArchivalDataSourcesListUrl
         {
-            get { return ConfigurationManager.AppSettings["ArchivalExchangeRatesDataSourceUrl"].ToString(); }
+            get { return ConfigurationManager.AppSettings["ArchivalDataSourcesListUrl"].ToString(); }
+        }
+
+        /// <summary>
+        /// TODO
+        /// </summary>
+        public static string ArchivalDataSourceUrl
+        {
+            get { return ConfigurationManager.AppSettings["ArchivalDataSourceUrl"].ToString(); }
         }
     }
 }

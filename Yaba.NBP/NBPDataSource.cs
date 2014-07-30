@@ -42,9 +42,9 @@ namespace NetDevelopersPoland.Yaba.NBP
         /// TODO
         /// </summary>
         /// <returns></returns>
-        public Stream GetArchivalExchangeRatesDataSource(Table table, DateTime date)
+        public Stream GetArchivalDataSource(Table table, DateTime date)
         {
-            return GetStreamForUrl(ArchivalExchangeRatesUrlGenerator.GetUrl(table, date));
+            return GetStreamForUrl(UrlGenerator.GetUrlToArchivalDataSource(table, date));
         }
 
         private Stream GetStreamForUrl(string url)
