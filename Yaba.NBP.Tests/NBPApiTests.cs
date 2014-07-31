@@ -69,7 +69,19 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
             {
                 return new[] 
                 { 
-                    new object[] { Currency.DKK, 0.5485M, 0.5595M } 
+                    new object[] { Currency.DKK, 0.5485M, 0.5595M },
+                    new object[] { Currency.SEK, 0.4443M, 0.4533M },
+                    new object[] { Currency.NOK, 0.4909M, 0.5009M },
+                    new object[] { Currency.CZK, 0.1490M, 0.1520M },
+                    new object[] { Currency.JPY, 2.9941M, 3.0545M },
+                    new object[] { Currency.GBP, 5.1749M, 5.2795M },
+                    new object[] { Currency.CHF, 3.3664M, 3.4344M },
+                    new object[] { Currency.HUF, 1.3319M, 1.3589M },
+                    new object[] { Currency.EUR, 4.0900M, 4.1726M },
+                    new object[] { Currency.CAD, 2.8286M, 2.8858M },
+                    new object[] { Currency.XDR, 4.6731M, 4.7675M },
+                    new object[] { Currency.USD, 3.0367M, 3.0981M },
+                    new object[] { Currency.AUD, 2.8686M, 2.9266M }
                 };
             }
         }
