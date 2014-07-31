@@ -9,15 +9,31 @@ namespace NetDevelopersPoland.Yaba.NBP
     [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = false)]
     public class IdAttribute : Attribute
     {
+        /// <summary>
+        /// TODO
+        /// </summary>
+        /// <param name="id"></param>
         public IdAttribute(string id)
         {
             Value = id;
         }
+
+        /// <summary>
+        /// TODO
+        /// </summary>
         public string Value { get; private set; }
     }
 
+    /// <summary>
+    /// TODO
+    /// </summary>
     public static class IdAttributeHelper
     {
+        /// <summary>
+        /// TODO
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static string GetId(this object value)
         {
             FieldInfo fi = value.GetType().GetField(value.ToString());
