@@ -29,7 +29,11 @@ namespace NetDevelopersPoland.Yaba.NBP
         /// <returns>URL to archival data source</returns>
         public static string GetUrlToArchivalDataSource(Table table, DateTime date)
         {
+            date = date.Date;
+
             if (date < ApiConfiguration.FirstArchivalDataSourceDate)
+                throw new ArgumentException();
+            if (date >= DateTime.Now.Date)
                 throw new ArgumentException();
 
             Stream archivalDataSourcesListStream = _urlGeneratorDataSource.GetArchivalDataSourcesList();

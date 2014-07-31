@@ -43,12 +43,20 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
                 {
                     new object[] { Table.A, new DateTime(2001, 12, 31) },
                     new object[] { Table.A, new DateTime(2002, 1, 1) },
+                    new object[] { Table.A, DateTime.Now.Date },
+                    new object[] { Table.A, DateTime.Now.Date.AddDays(1.0d) },
                     new object[] { Table.B, new DateTime(2001, 12, 31) },
                     new object[] { Table.B, new DateTime(2002, 1, 1) },
+                    new object[] { Table.B, DateTime.Now.Date },
+                    new object[] { Table.B, DateTime.Now.Date.AddDays(1.0d) },
                     new object[] { Table.C, new DateTime(2001, 12, 31) },
                     new object[] { Table.C, new DateTime(2002, 1, 1) },
+                    new object[] { Table.C, DateTime.Now.Date },
+                    new object[] { Table.C, DateTime.Now.Date.AddDays(1.0d) },
                     new object[] { Table.H, new DateTime(2001, 12, 31) },
-                    new object[] { Table.H, new DateTime(2002, 1, 1) }
+                    new object[] { Table.H, new DateTime(2002, 1, 1) },
+                    new object[] { Table.H, DateTime.Now.Date },
+                    new object[] { Table.H, DateTime.Now.Date.AddDays(1.0d) }
                 };
             }
         }
