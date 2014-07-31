@@ -1,0 +1,13 @@
+﻿<Window x:Class="Yaba.NBP.Example.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <DockPanel LastChildFill="True">
+        <StackPanel Width="150">
+            <Button Click="Button_GetActualExchangeRates_Click">Get Actual Exchange Rates</Button>
+            <Button Click="Button_GetActualBuySellRates_Click">Get Actual Buy/Sell Rates</Button>
+            <Button Click="Button_GetActualBaseRates_Click">Get Actual Base Rates</Button>
+        </StackPanel>
+        <DataGrid Name="grid"></DataGrid>
+    </DockPanel>
+</Window>
