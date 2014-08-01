@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -47,13 +48,13 @@ namespace NetDevelopersPoland.Yaba.NBP
 
             using (StreamReader streamReader = new StreamReader(tempStream, ApiConfiguration.DefaultEncoding))
             {
-                string[] files = streamReader.ReadToEnd().Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                List<string> archivalDataSourcesList = streamReader.ReadToEnd().Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries).ToList();
 
-                string fileNamePrefix = GetFileNamePrefix(table);
-                string fileNameSuffix = GetFileNameSuffix(date);
-                string fileName = files.FirstOrDefault(file => file.StartsWith(fileNamePrefix) && file.EndsWith(fileNameSuffix));
+                string archivalDataSourcePrefix = GetArchivalDataSourcePrefix(table);
+                string archivalDataSourceSuffix = GetArchivalDataSourceSuffix(date);
+                string archivalDataSource = archivalDataSourcesList.GetArchivalDataSource(archivalDataSourcePrefix, archivalDataSourceSuffix);
 
-                if (string.IsNullOrEmpty(fileName))
+                if (string.IsNullOrEmpty(archivalDataSource))
                 {
                     do
                     {
@@ -61,22 +62,22 @@ namespace NetDevelopersPoland.Yaba.NBP
                         if (date < ApiConfiguration.FirstArchivalDataSourceDate)
                             throw new ArgumentException();
 
-                        fileNameSuffix = GetFileNameSuffix(date);
-                        fileName = files.FirstOrDefault(file => file.StartsWith(fileNamePrefix) && file.EndsWith(fileNameSuffix));
+                        archivalDataSourceSuffix = GetArchivalDataSourceSuffix(date);
+                        archivalDataSource = archivalDataSourcesList.GetArchivalDataSource(archivalDataSourcePrefix, archivalDataSourceSuffix);
                     }
-                    while (string.IsNullOrEmpty(fileName));
+                    while (string.IsNullOrEmpty(archivalDataSource));
                 }
 
-                return string.Format(ApiConfiguration.ArchivalDataSourceUrl, fileName);
+                return string.Format(ApiConfiguration.ArchivalDataSourceUrl, archivalDataSource);
             }
         }
 
-        private static string GetFileNamePrefix(Table table)
+        private static string GetArchivalDataSourcePrefix(Table table)
         {
             return Enum.GetName(table.GetType(), table).ToLower();
         }
 
-        private static string GetFileNameSuffix(DateTime date)
+        private static string GetArchivalDataSourceSuffix(DateTime date)
         {
             return "z" + date.ToString("yyMMdd");
         }
