@@ -33,9 +33,9 @@ namespace NetDevelopersPoland.Yaba.NBP
             date = date.Date;
 
             if (date < ApiConfiguration.FirstArchivalDataSourceDate)
-                throw new ArgumentException();
+                throw new ArgumentException("Date must be greater than or equal to 02.01.2002");
             if (date >= DateTime.Now.Date)
-                throw new ArgumentException();
+                throw new ArgumentException("Date must be earlier than current date");
 
             Stream archivalDataSourcesListStream = _urlGeneratorDataSource.GetArchivalDataSourcesList();
             if (archivalDataSourcesListStream.CanSeek)

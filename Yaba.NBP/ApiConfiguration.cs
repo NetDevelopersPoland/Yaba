@@ -27,7 +27,7 @@ namespace NetDevelopersPoland.Yaba.NBP
         }
 
         /// <summary>
-        /// First archival data source date
+        /// First archival data source date (02.01.2002)
         /// </summary>
         public static DateTime FirstArchivalDataSourceDate
         {
