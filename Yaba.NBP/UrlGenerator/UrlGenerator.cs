@@ -72,11 +72,25 @@ namespace NetDevelopersPoland.Yaba.NBP
             }
         }
 
+        /// <summary>
+        /// Get archival data source prefix
+        /// </summary>
+        /// <example>a</example>
+        /// <example>b</example>
+        /// <example>c</example>
+        /// <example>h</example>
         private static string GetArchivalDataSourcePrefix(Table table)
         {
             return Enum.GetName(table.GetType(), table).ToLower();
         }
 
+        /// <summary>
+        /// Get archival data source suffix
+        /// </summary>
+        /// <example>z140801</example>
+        /// <example>z081228</example>
+        /// <example>z030201</example>
+        /// <example>z110914</example>
         private static string GetArchivalDataSourceSuffix(DateTime date)
         {
             return "z" + date.ToString("yyMMdd");

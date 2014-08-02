@@ -17,6 +17,9 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
 
         #region Test data
 
+        /// <summary>
+        /// Test data for "NBPApi_providedCurrency_shouldReturnActualExchangeRate" test
+        /// </summary>
         public static IEnumerable<object[]> ActualExchangeRatesTestData
         {
             get
@@ -63,6 +66,9 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
             }
         }
 
+        /// <summary>
+        /// Test data for "NBPApi_providedCurrency_shouldReturnActualBuySellRate" test
+        /// </summary>
         public static IEnumerable<object[]> ActualBuySellRatesTestData
         {
             get
@@ -86,6 +92,9 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
             }
         }
 
+        /// <summary>
+        /// Test data for "NBPApi_providedRate_shouldReturnActualBaseRate" test
+        /// </summary>
         public static IEnumerable<object[]> ActualBaseRatesTestData
         {
             get
@@ -100,6 +109,9 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
             }
         }
 
+        /// <summary>
+        /// Test data for "NBPApi_providedCurrency_providedTable_providedDate_shouldReturnArchivalExchangeRate" test
+        /// </summary>
         public static IEnumerable<object[]> ArchivalExchangeRatesTestData
         {
             get
@@ -179,7 +191,7 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
 
         [Theory]
         [PropertyData("ActualBaseRatesTestData")]
-        public void NBPApi_providedRate_shouldReturnActualBaseRates(Rate rate, decimal value, DateTime ValidFrom)
+        public void NBPApi_providedRate_shouldReturnActualBaseRate(Rate rate, decimal value, DateTime ValidFrom)
         {
             // Arrange
             NBPApi sut = new NBPApi(_mockedNbpDataSource);
@@ -206,6 +218,9 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
             Assert.Equal(expectedExchangeRateValue, exchangeRate.Value);
         }
 
+        /// <summary>
+        /// Dispose
+        /// </summary>
         public void Dispose()
         {
             if (_mockedNbpDataSource != null)

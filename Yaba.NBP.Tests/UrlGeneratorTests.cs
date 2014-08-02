@@ -17,6 +17,9 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
 
         #region Test data
 
+        /// <summary>
+        /// Correct test data for "UrlGenerator_providedTable_providedDate_shouldReturnUrlToArchivalDataSource" test
+        /// </summary>
         public static IEnumerable<object[]> CorrectTestData
         {
             get
@@ -35,6 +38,9 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
             }
         }
 
+        /// <summary>
+        /// Incorrect test data for "UrlGenerator_providedTable_providedDate_shouldReturnUrlToArchivalDataSource" test
+        /// </summary>
         public static IEnumerable<object[]> IncorrectTestData
         {
             get
@@ -88,6 +94,9 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
             Assert.Throws<ArgumentException>(() => UrlGenerator.GetUrlToArchivalDataSource(providedTable, providedDate));
         }
 
+        /// <summary>
+        /// Dispose
+        /// </summary>
         public void Dispose()
         {
             if (_mockedUrlGeneratorDataSource != null)

@@ -26,6 +26,9 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests.Fixtures
             return mock.Object;
         }
 
+        /// <summary>
+        /// Dispose
+        /// </summary>
         public void Dispose()
         {
             if (_mockedArchivalDataSourcesListStream != null)

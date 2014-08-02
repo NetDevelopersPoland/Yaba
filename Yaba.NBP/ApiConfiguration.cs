@@ -35,7 +35,7 @@ namespace NetDevelopersPoland.Yaba.NBP
         }
 
         /// <summary>
-        /// TODO
+        /// URL to actual exchange rates data source
         /// </summary>
         public static string ActualExchangeRatesDataSourceUrl
         {
@@ -43,7 +43,7 @@ namespace NetDevelopersPoland.Yaba.NBP
         }
 
         /// <summary>
-        /// TODO
+        /// URL to actual buy-sell rates data source
         /// </summary>
         public static string ActualBuySellRatesDataSourceUrl
         {
@@ -51,7 +51,7 @@ namespace NetDevelopersPoland.Yaba.NBP
         }
 
         /// <summary>
-        /// TODO
+        /// URL to actual base rates data source
         /// </summary>
         public static string ActualBaseRatesDataSourceUrl
         {
@@ -59,7 +59,7 @@ namespace NetDevelopersPoland.Yaba.NBP
         }
 
         /// <summary>
-        /// TODO
+        /// URL to archival data sources list
         /// </summary>
         public static string ArchivalDataSourcesListUrl
         {
@@ -67,7 +67,7 @@ namespace NetDevelopersPoland.Yaba.NBP
         }
 
         /// <summary>
-        /// TODO
+        /// URL to archival data source
         /// </summary>
         public static string ArchivalDataSourceUrl
         {
