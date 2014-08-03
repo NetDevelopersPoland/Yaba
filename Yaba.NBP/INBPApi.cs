@@ -32,9 +32,16 @@ namespace NetDevelopersPoland.Yaba.NBP
         /// Get archival exchange rate for currency
         /// </summary>
         /// <param name="currency">Currency</param>
-        /// <param name="table">Table</param>
         /// <param name="date">Date</param>
         /// <returns>Archival exchange rate for currency</returns>
-        ExchangeRate GetArchivalExchangeRate(Currency currency, Table table, DateTime date);
+        ExchangeRate GetArchivalExchangeRate(Currency currency, DateTime date);
+
+        /// <summary>
+        /// Get archival buy-sell rate for currency
+        /// </summary>
+        /// <param name="currency">Currency</param>
+        /// <param name="date">Date</param>
+        /// <returns>Archival buy-sell rate for currency</returns>
+        BuySellRate GetArchivalBuySellRate(Currency currency, DateTime date);
     }
 }

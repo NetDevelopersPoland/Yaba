@@ -168,12 +168,11 @@ namespace NetDevelopersPoland.Yaba.NBP
         /// Get archival exchange rate for currency
         /// </summary>
         /// <param name="currency">Currency</param>
-        /// <param name="table">Table</param>
         /// <param name="date">Date</param>
         /// <returns>Archival exchange rate for currency</returns>
-        public ExchangeRate GetArchivalExchangeRate(Currency currency, Table table, DateTime date)
+        public ExchangeRate GetArchivalExchangeRate(Currency currency, DateTime date)
         {
-            Stream archivalExchangeRatesDataSourceStream = _nbpDataSource.GetArchivalDataSource(table, date);
+            Stream archivalExchangeRatesDataSourceStream = _nbpDataSource.GetArchivalDataSource(Table.A, date);
             if (archivalExchangeRatesDataSourceStream.CanSeek)
                 archivalExchangeRatesDataSourceStream.Seek(0, SeekOrigin.Begin);
 
@@ -203,6 +202,55 @@ namespace NetDevelopersPoland.Yaba.NBP
                 return new ExchangeRate()
                 {
                     Value = value,
+                    Currency = currency,
+                    PublicationDate = publicationDate
+                };
+            }
+        }
+
+        /// <summary>
+        /// Get archival buy-sell rate for currency
+        /// </summary>
+        /// <param name="currency">Currency</param>
+        /// <param name="date">Date</param>
+        /// <returns>Archival buy-sell rate for currency</returns>
+        public BuySellRate GetArchivalBuySellRate(Currency currency, DateTime date)
+        {
+            Stream archivalBuySellRatesDataSourceStream = _nbpDataSource.GetArchivalDataSource(Table.C, date);
+            if (archivalBuySellRatesDataSourceStream.CanSeek)
+                archivalBuySellRatesDataSourceStream.Seek(0, SeekOrigin.Begin);
+
+            MemoryStream tempStream = new MemoryStream();
+            archivalBuySellRatesDataSourceStream.CopyTo(tempStream);
+            if (tempStream.CanSeek)
+                tempStream.Seek(0, SeekOrigin.Begin);
+
+            using (StreamReader streamReader = new StreamReader(tempStream, ApiConfiguration.DefaultEncoding))
+            {
+                XDocument xmlDocument = XDocument.Load(streamReader);
+
+                XElement positionElement = xmlDocument
+                    .Descendants(XName.Get("kod_waluty"))
+                    .SingleOrDefault(x => x.Value == Enum.GetName(currency.GetType(), currency))
+                    .Parent;
+                XElement buyValueElement = positionElement
+                    .Elements(XName.Get("kurs_kupna"))
+                    .SingleOrDefault();
+                XElement sellValueElement = positionElement
+                    .Elements(XName.Get("kurs_sprzedazy"))
+                    .SingleOrDefault();
+                XElement publicationDateElement = xmlDocument
+                    .Descendants(XName.Get("data_publikacji"))
+                    .SingleOrDefault();
+
+                decimal buyValue = Decimal.Parse(buyValueElement.Value, ApiConfiguration.DefaultCulture);
+                decimal sellValue = Decimal.Parse(sellValueElement.Value, ApiConfiguration.DefaultCulture);
+                DateTime publicationDate = DateTime.Parse(publicationDateElement.Value, ApiConfiguration.DefaultCulture);
+
+                return new BuySellRate()
+                {
+                    BuyValue = buyValue,
+                    SellValue = sellValue,
                     Currency = currency,
                     PublicationDate = publicationDate
                 };

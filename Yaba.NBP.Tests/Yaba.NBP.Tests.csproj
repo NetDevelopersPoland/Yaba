@@ -71,6 +71,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Mocks\MockedArchivalBuySellRatesDataSource.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Mocks\MockedArchivalDataSourcesList.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

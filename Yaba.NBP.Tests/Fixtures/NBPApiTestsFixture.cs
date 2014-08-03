@@ -10,6 +10,7 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests.Fixtures
         private MemoryStream _mockedActualBuySellRatesDataSourceStream = new MemoryStream();
         private MemoryStream _mockedActualBaseRatesDataSourceStream = new MemoryStream();
         private MemoryStream _mockedArchivalExchangeRatesDataSourceStream = new MemoryStream();
+        private MemoryStream _mockedArchivalBuySellRatesDataSourceStream = new MemoryStream();
 
         public NBPApiTestsFixture()
         {
@@ -36,6 +37,12 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests.Fixtures
             {
                 tempStream.CopyTo(_mockedArchivalExchangeRatesDataSourceStream);
             }
+
+            string mockedArchivalBuySellRatesDataSourceFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Mocks", "MockedArchivalBuySellRatesDataSource.xml");
+            using (FileStream tempStream = File.Open(mockedArchivalBuySellRatesDataSourceFilePath, FileMode.Open))
+            {
+                tempStream.CopyTo(_mockedArchivalBuySellRatesDataSourceStream);
+            }
         }
 
         public INBPDataSource GetMockedNBPDataSource()
@@ -46,6 +53,7 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests.Fixtures
             mock.Setup(m => m.GetActualBuySellRatesDataSource()).Returns(_mockedActualBuySellRatesDataSourceStream);
             mock.Setup(m => m.GetActualBaseRatesDataSource()).Returns(_mockedActualBaseRatesDataSourceStream);
             mock.Setup(m => m.GetArchivalDataSource(Table.A, new DateTime(2014, 1, 23))).Returns(_mockedArchivalExchangeRatesDataSourceStream);
+            mock.Setup(m => m.GetArchivalDataSource(Table.C, new DateTime(2014, 8, 1))).Returns(_mockedArchivalBuySellRatesDataSourceStream);
 
             return mock.Object;
         }
@@ -63,6 +71,8 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests.Fixtures
                 _mockedActualBaseRatesDataSourceStream.Dispose();
             if (_mockedArchivalExchangeRatesDataSourceStream != null)
                 _mockedArchivalExchangeRatesDataSourceStream.Dispose();
+            if (_mockedArchivalBuySellRatesDataSourceStream != null)
+                _mockedArchivalBuySellRatesDataSourceStream.Dispose();
         }
     }
 }
