@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+?xm<l version="1.0"?>
 <package >
   <metadata>
     <id>$id$</id>
@@ -14,4 +14,7 @@
     <copyright>Copyright 2014, NetDevelopersPoland. All rights reserved.</copyright>
     <tags>exchange rate api nbp</tags>
   </metadata>
+  <files>
+    <file src="bin\$configuration$\$id$.dll" target="lib\net45\" />
+  </files>
 </package>
