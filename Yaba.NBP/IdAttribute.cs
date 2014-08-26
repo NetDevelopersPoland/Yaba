@@ -7,7 +7,7 @@ namespace NetDevelopersPoland.Yaba.NBP
     /// TODO
     /// </summary>
     [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = false)]
-    public class IdAttribute : Attribute
+    internal class IdAttribute : Attribute
     {
         /// <summary>
         /// TODO
@@ -27,7 +27,7 @@ namespace NetDevelopersPoland.Yaba.NBP
     /// <summary>
     /// TODO
     /// </summary>
-    public static class IdAttributeHelper
+    internal static class IdAttributeHelper
     {
         /// <summary>
         /// TODO

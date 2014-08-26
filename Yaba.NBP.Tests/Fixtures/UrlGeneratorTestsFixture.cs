@@ -17,7 +17,7 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests.Fixtures
             }
         }
 
-        public IUrlGeneratorDataSource GetMockedUrlGeneratorDataSource()
+        internal IUrlGeneratorDataSource GetMockedUrlGeneratorDataSource()
         {
             Mock<IUrlGeneratorDataSource> mock = new Mock<IUrlGeneratorDataSource>();
 

@@ -45,8 +45,9 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests.Fixtures
             }
         }
 
-        public INBPDataSource GetMockedNBPDataSource()
+        internal INBPDataSource GetMockedNBPDataSource()
         {
+
             Mock<INBPDataSource> mock = new Mock<INBPDataSource>();
 
             mock.Setup(m => m.GetActualExchangeRatesDataSource()).Returns(_mockedActualExchangeRatesDataSourceStream);

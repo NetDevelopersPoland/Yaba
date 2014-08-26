@@ -6,7 +6,7 @@ namespace NetDevelopersPoland.Yaba.NBP
     /// <summary>
     /// Extensions for URL generator
     /// </summary>
-    public static class UrlGeneratorExtensions
+    internal static class UrlGeneratorExtensions
     {
         /// <summary>
         /// Get archival data source by prefix and suffix

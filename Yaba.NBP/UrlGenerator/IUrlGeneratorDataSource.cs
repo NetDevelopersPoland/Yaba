@@ -6,7 +6,7 @@ namespace NetDevelopersPoland.Yaba.NBP
     /// <summary>
     /// TODO
     /// </summary>
-    public interface IUrlGeneratorDataSource : IDisposable
+    internal interface IUrlGeneratorDataSource : IDisposable
     {
         /// <summary>
         /// TODO

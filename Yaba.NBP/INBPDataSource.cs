@@ -6,7 +6,7 @@ namespace NetDevelopersPoland.Yaba.NBP
     /// <summary>
     /// TODO
     /// </summary>
-    public interface INBPDataSource : IDisposable
+    internal interface INBPDataSource : IDisposable
     {
         /// <summary>
         /// TODO
