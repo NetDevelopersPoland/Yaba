@@ -71,7 +71,7 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
 
         [Theory]
         [PropertyData("CorrectTestData")]
-        public void UrlGenerator_providedTable_providedDate_shouldReturnUrlToArchivalDataSource(Table providedTable, DateTime providedDate, string expectedUrl)
+        internal void UrlGenerator_providedTable_providedDate_shouldReturnUrlToArchivalDataSource(Table providedTable, DateTime providedDate, string expectedUrl)
         {
             // Arrange
             UrlGenerator.SetMockedDataSource(_mockedUrlGeneratorDataSource);
@@ -85,7 +85,7 @@ namespace NetDevelopersPoland.Yaba.NBP.Tests
 
         [Theory]
         [PropertyData("IncorrectTestData")]
-        public void UrlGenerator_providedTable_providedDate_shouldThrowArgumentException(Table providedTable, DateTime providedDate)
+        internal void UrlGenerator_providedTable_providedDate_shouldThrowArgumentException(Table providedTable, DateTime providedDate)
         {
             // Arrange
             UrlGenerator.SetMockedDataSource(_mockedUrlGeneratorDataSource);

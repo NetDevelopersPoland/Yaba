@@ -3,7 +3,7 @@
     /// <summary>
     /// Available tables
     /// </summary>
-    public enum Table
+    internal enum Table
     {
         /// <summary>
         /// Table A
