@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Copyright 2014, NetDevelopersPoland. All rights reserved.
+// Licensed under the MIT License. See License file in the project root for license information.
+using System;
 
 namespace NetDevelopersPoland.Yaba.NBP
 {   

@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿// Copyright 2014, NetDevelopersPoland. All rights reserved.
+// Licensed under the MIT License. See License file in the project root for license information.
+using System.Collections.Generic;
 using System.Linq;
 
 namespace NetDevelopersPoland.Yaba.NBP

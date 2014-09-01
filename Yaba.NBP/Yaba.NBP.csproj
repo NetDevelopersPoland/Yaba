@@ -62,6 +62,9 @@
     <Compile Include="UrlGenerator\UrlGeneratorExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Yaba.licenseheader">
+      <Link>Yaba.licenseheader</Link>
+    </None>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>

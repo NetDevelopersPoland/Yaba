@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿// Copyright 2014, NetDevelopersPoland. All rights reserved.
+// Licensed under the MIT License. See License file in the project root for license information.
+using System.IO;
 using System.Net;
 
 namespace NetDevelopersPoland.Yaba.NBP
