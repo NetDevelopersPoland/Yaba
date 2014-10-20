@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yaba.NBP.Tests", "Yaba.NBP.Tests\Yaba.NBP.Tests.csproj", "{E64B3CB6-CADA-464C-BE7B-B57AEAA04A00}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yaba.NBP", "Yaba.NBP\Yaba.NBP.csproj", "{FC67928B-3290-4568-8D66-F1B1D1E6C648}"

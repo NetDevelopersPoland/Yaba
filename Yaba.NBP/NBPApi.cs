@@ -50,25 +50,21 @@ namespace NetDevelopersPoland.Yaba.NBP
             {
                 XDocument xmlDocument = XDocument.Load(streamReader);
 
-                XElement positionElement = xmlDocument
-                    .Descendants(XName.Get("kod_waluty"))
-                    .SingleOrDefault(x => x.Value == Enum.GetName(currency.GetType(), currency))
-                    .Parent;
-                XElement valueElement = positionElement
-                    .Elements(XName.Get("kurs_sredni"))
-                    .SingleOrDefault();
-                XElement publicationDateElement = xmlDocument
-                    .Descendants(XName.Get("data_publikacji"))
-                    .SingleOrDefault();
+                var data = from item in xmlDocument.Descendants("pozycja")
+                           where item.Element("kod_waluty").Value == Enum.GetName(currency.GetType(), currency)
+                           select new
+                           {
+                               Published = DateTime.Parse(item.Parent.Element("data_publikacji").Value, ApiConfiguration.DefaultCulture),
+                               Value = Decimal.Parse(item.Element("kurs_sredni").Value, ApiConfiguration.DefaultCulture),
+                           };
 
-                decimal value = Decimal.Parse(valueElement.Value, ApiConfiguration.DefaultCulture);
-                DateTime publicationDate = DateTime.Parse(publicationDateElement.Value, ApiConfiguration.DefaultCulture);
+                var tmp = data.FirstOrDefault();
 
                 return new ExchangeRate()
                 {
-                    Value = value,
+                    PublicationDate = tmp.Published,
+                    Value = tmp.Value,
                     Currency = currency,
-                    PublicationDate = publicationDate
                 };
             }
         }
@@ -93,30 +89,23 @@ namespace NetDevelopersPoland.Yaba.NBP
             {
                 XDocument xmlDocument = XDocument.Load(streamReader);
 
-                XElement positionElement = xmlDocument
-                    .Descendants(XName.Get("kod_waluty"))
-                    .SingleOrDefault(x => x.Value == Enum.GetName(currency.GetType(), currency))
-                    .Parent;
-                XElement buyValueElement = positionElement
-                    .Elements(XName.Get("kurs_kupna"))
-                    .SingleOrDefault();
-                XElement sellValueElement = positionElement
-                    .Elements(XName.Get("kurs_sprzedazy"))
-                    .SingleOrDefault();
-                XElement publicationDateElement = xmlDocument
-                    .Descendants(XName.Get("data_publikacji"))
-                    .SingleOrDefault();
+                var data = from item in xmlDocument.Descendants("pozycja")
+                           where item.Element("kod_waluty").Value == Enum.GetName(currency.GetType(), currency)
+                           select new
+                           {
+                               Published = DateTime.Parse(item.Parent.Element("data_publikacji").Value, ApiConfiguration.DefaultCulture),
+                               BuyValue = Decimal.Parse(item.Element("kurs_kupna").Value, ApiConfiguration.DefaultCulture),
+                               SellValue = Decimal.Parse(item.Element("kurs_sprzedazy").Value, ApiConfiguration.DefaultCulture),
+                           };
 
-                decimal buyValue = Decimal.Parse(buyValueElement.Value, ApiConfiguration.DefaultCulture);
-                decimal sellValue = Decimal.Parse(sellValueElement.Value, ApiConfiguration.DefaultCulture);
-                DateTime publicationDate = DateTime.Parse(publicationDateElement.Value, ApiConfiguration.DefaultCulture);
+                var tmp = data.FirstOrDefault();
 
                 return new BuySellRate()
                 {
-                    BuyValue = buyValue,
-                    SellValue = sellValue,
+                    PublicationDate = tmp.Published,
+                    BuyValue = tmp.BuyValue,
+                    SellValue = tmp.SellValue,
                     Currency = currency,
-                    PublicationDate = publicationDate
                 };
             }
         }
@@ -141,27 +130,24 @@ namespace NetDevelopersPoland.Yaba.NBP
             {
                 XDocument xmlDocument = XDocument.Load(streamReader);
 
-                var result = xmlDocument.Element("stopy_procentowe")
-                   .Elements("tabela")
-                   .Single(x => (string)x.Attribute("id") == "stoproc");
+                var data = from item in
+                               (from item1 in xmlDocument.Descendants("tabela")
+                                where item1.Attribute("id").Value == "stoproc"
+                                select item1.Descendants("pozycja")).FirstOrDefault()
+                           where item.Attribute("id").Value == rate.GetId()
+                           select new
+                           {
+                               ValidFrom = DateTime.Parse(item.Attribute("obowiazuje_od").Value, ApiConfiguration.DefaultCulture),
+                               Value = Decimal.Parse(item.Attribute("oprocentowanie").Value, ApiConfiguration.DefaultCulture),
+                           };
 
-                var positionElement = result
-                    .Elements("pozycja")
-                    .Single(x => (string)x.Attribute("id") == rate.GetId());
-
-
-                var valueElement = positionElement.Attribute(XName.Get("oprocentowanie"));
-
-                var validFromElement = positionElement.Attribute(XName.Get("obowiazuje_od"));
-
-                decimal value = Decimal.Parse(valueElement.Value, ApiConfiguration.DefaultCulture);
-                DateTime validFrom = DateTime.Parse(validFromElement.Value, ApiConfiguration.DefaultCulture);
+                var tmp = data.FirstOrDefault();
 
                 return new BaseRate()
                 {
                     Rate = rate,
-                    Value = value,
-                    ValidFrom = validFrom
+                    Value = tmp.Value,
+                    ValidFrom = tmp.ValidFrom
                 };
             }
         }
@@ -187,25 +173,21 @@ namespace NetDevelopersPoland.Yaba.NBP
             {
                 XDocument xmlDocument = XDocument.Load(streamReader);
 
-                XElement positionElement = xmlDocument
-                    .Descendants(XName.Get("kod_waluty"))
-                    .SingleOrDefault(x => x.Value == Enum.GetName(currency.GetType(), currency))
-                    .Parent;
-                XElement valueElement = positionElement
-                    .Elements(XName.Get("kurs_sredni"))
-                    .SingleOrDefault();
-                XElement publicationDateElement = xmlDocument
-                    .Descendants(XName.Get("data_publikacji"))
-                    .SingleOrDefault();
+                var data = from item in xmlDocument.Descendants("pozycja")
+                           where item.Element("kod_waluty").Value == Enum.GetName(currency.GetType(), currency)
+                           select new
+                           {
+                               Published = DateTime.Parse(item.Parent.Element("data_publikacji").Value, ApiConfiguration.DefaultCulture),
+                               Value = Decimal.Parse(item.Element("kurs_sredni").Value, ApiConfiguration.DefaultCulture),
+                           };
 
-                decimal value = Decimal.Parse(valueElement.Value, ApiConfiguration.DefaultCulture);
-                DateTime publicationDate = DateTime.Parse(publicationDateElement.Value, ApiConfiguration.DefaultCulture);
+                var tmp = data.FirstOrDefault();
 
                 return new ExchangeRate()
                 {
-                    Value = value,
+                    PublicationDate = tmp.Published,
+                    Value = tmp.Value,
                     Currency = currency,
-                    PublicationDate = publicationDate
                 };
             }
         }
@@ -231,30 +213,23 @@ namespace NetDevelopersPoland.Yaba.NBP
             {
                 XDocument xmlDocument = XDocument.Load(streamReader);
 
-                XElement positionElement = xmlDocument
-                    .Descendants(XName.Get("kod_waluty"))
-                    .SingleOrDefault(x => x.Value == Enum.GetName(currency.GetType(), currency))
-                    .Parent;
-                XElement buyValueElement = positionElement
-                    .Elements(XName.Get("kurs_kupna"))
-                    .SingleOrDefault();
-                XElement sellValueElement = positionElement
-                    .Elements(XName.Get("kurs_sprzedazy"))
-                    .SingleOrDefault();
-                XElement publicationDateElement = xmlDocument
-                    .Descendants(XName.Get("data_publikacji"))
-                    .SingleOrDefault();
+                var data = from item in xmlDocument.Descendants("pozycja")
+                           where item.Element("kod_waluty").Value == Enum.GetName(currency.GetType(), currency)
+                           select new
+                           {
+                               Published = DateTime.Parse(item.Parent.Element("data_publikacji").Value, ApiConfiguration.DefaultCulture),
+                               BuyValue = Decimal.Parse(item.Element("kurs_kupna").Value, ApiConfiguration.DefaultCulture),
+                               SellValue = Decimal.Parse(item.Element("kurs_sprzedazy").Value, ApiConfiguration.DefaultCulture),
+                           };
 
-                decimal buyValue = Decimal.Parse(buyValueElement.Value, ApiConfiguration.DefaultCulture);
-                decimal sellValue = Decimal.Parse(sellValueElement.Value, ApiConfiguration.DefaultCulture);
-                DateTime publicationDate = DateTime.Parse(publicationDateElement.Value, ApiConfiguration.DefaultCulture);
+                var tmp = data.FirstOrDefault();
 
                 return new BuySellRate()
                 {
-                    BuyValue = buyValue,
-                    SellValue = sellValue,
+                    PublicationDate = tmp.Published,
+                    BuyValue = tmp.BuyValue,
+                    SellValue = tmp.SellValue,
                     Currency = currency,
-                    PublicationDate = publicationDate
                 };
             }
         }
