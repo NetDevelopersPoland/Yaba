@@ -65,9 +65,6 @@
     <None Include="..\Yaba.licenseheader">
       <Link>Yaba.licenseheader</Link>
     </None>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

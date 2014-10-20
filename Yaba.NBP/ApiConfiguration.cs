@@ -1,7 +1,6 @@
 ﻿// Copyright 2014, NetDevelopersPoland. All rights reserved.
 // Licensed under the MIT License. See License file in the project root for license information.
 using System;
-using System.Configuration;
 using System.Globalization;
 using System.Text;
 
@@ -41,7 +40,7 @@ namespace NetDevelopersPoland.Yaba.NBP
         /// </summary>
         public static string ActualExchangeRatesDataSourceUrl
         {
-            get { return ConfigurationManager.AppSettings["ActualExchangeRatesDataSourceUrl"].ToString(); }
+            get { return @"http://www.nbp.pl/kursy/xml/LastA.xml"; }
         }
 
         /// <summary>
@@ -49,7 +48,7 @@ namespace NetDevelopersPoland.Yaba.NBP
         /// </summary>
         public static string ActualBuySellRatesDataSourceUrl
         {
-            get { return ConfigurationManager.AppSettings["ActualBuySellRatesDataSourceUrl"].ToString(); }
+            get { return @"http://www.nbp.pl/kursy/xml/LastC.xml"; }
         }
 
         /// <summary>
@@ -57,7 +56,7 @@ namespace NetDevelopersPoland.Yaba.NBP
         /// </summary>
         public static string ActualBaseRatesDataSourceUrl
         {
-            get { return ConfigurationManager.AppSettings["ActualBaseRatesDataSourceUrl"].ToString(); }
+            get { return @"http://www.nbp.pl/xml/stopy_procentowe.xml"; }
         }
 
         /// <summary>
@@ -65,7 +64,7 @@ namespace NetDevelopersPoland.Yaba.NBP
         /// </summary>
         public static string ArchivalDataSourcesListUrl
         {
-            get { return ConfigurationManager.AppSettings["ArchivalDataSourcesListUrl"].ToString(); }
+            get { return @"http://www.nbp.pl/kursy/xml/dir.txt"; }
         }
 
         /// <summary>
@@ -73,7 +72,7 @@ namespace NetDevelopersPoland.Yaba.NBP
         /// </summary>
         public static string ArchivalDataSourceUrl
         {
-            get { return ConfigurationManager.AppSettings["ArchivalDataSourceUrl"].ToString(); }
+            get { return @"http://www.nbp.pl/kursy/xml/{0}.xml"; }
         }
     }
 }

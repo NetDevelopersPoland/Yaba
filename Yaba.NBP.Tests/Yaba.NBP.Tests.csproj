@@ -57,10 +57,6 @@
     <Compile Include="Fixtures\UrlGeneratorTestsFixture.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Yaba.NBP\App.config">
-      <Link>App.config</Link>
-      <SubType>Designer</SubType>
-    </None>
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
