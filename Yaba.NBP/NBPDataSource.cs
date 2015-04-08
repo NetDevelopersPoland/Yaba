@@ -52,6 +52,9 @@ namespace NetDevelopersPoland.Yaba.NBP
         private Stream GetStreamForUrl(string url)
         {
             HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
+            httpWebRequest.Proxy = WebRequest.DefaultWebProxy;
+            httpWebRequest.Credentials = System.Net.CredentialCache.DefaultCredentials;
+            httpWebRequest.Proxy.Credentials = System.Net.CredentialCache.DefaultCredentials;
             _httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse();
 
             return _httpWebResponse.GetResponseStream();
